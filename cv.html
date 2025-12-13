@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    }
+    .peach-button {
+      background: linear-gradient(135deg, #FFB6C1 0%, #FF8C94 100%);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .peach-button:hover {
+      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 140, 148, 0.4);
+    }
+    .footer-gradient {
+      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+    }
+    .text-glow {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(255, 182, 193, 0.6);
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(139, 92, 246, 0.7);
+      color: white;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    .social-icon svg {
+      fill: rgba(139, 92, 246, 0.85);
+      stroke: rgba(139, 92, 246, 0.85);
+      stroke-width: 2;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    }
+    .social-icon:hover {
+      border-color: rgba(139, 92, 246, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    }
+    .social-icon:hover svg {
+      fill: rgba(139, 92, 246, 1);
+      stroke: rgba(139, 92, 246, 1);
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="glass-strong sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- WHO I AM SECTION -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="glass-strong rounded-2xl p-8 md:p-12 text-center">
+        <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">Who I Am as a Project Manager & Developer</h3>
+        <div class="text-white text-lg leading-relaxed space-y-4 mb-8 text-left">
+          <p>I am a motivated IT student with a passion for project management, and creating effective solutions to real-world problems. I enjoy exploring new technologies and applying my knowledge to practical projects that make an impact. I am driven, adaptable, and eager to gain hands-on experience that will help me grow both personally and professionally in the IT field.</p>
+        </div>
+        <a href="hadjara_cv.pdf" download="hadjara_cv.pdf" class="inline-flex items-center gap-2 peach-button px-8 py-4 rounded-lg font-semibold text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Download CV (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATIONAL BACKGROUND TIMELINE -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Educational Background</h3>
+      <div class="relative">
+        <div class="timeline-line"></div>
+        
+        <!-- Timeline Entry 1 -->
+        <div class="relative mb-8 pl-16">
+          <div class="timeline-dot"></div>
+          <div class="glass-strong rounded-xl p-6">
+            <h4 class="text-2xl font-bold mb-2 text-white flex items-center gap-2">
+              🎓 Saint Columban College
+            </h4>
+            <p class="text-white/90 text-lg mb-2">Bachelor of Science in Information Technology</p>
+            <p class="text-white/70 text-sm">2022 - presnt</p>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 2 -->
+        <div class="relative mb-8 pl-16">
+          <div class="timeline-dot"></div>
+          <div class="glass-strong rounded-xl p-6">
+            <h4 class="text-2xl font-bold mb-2 text-white flex items-center gap-2">
+              🎓 Zamboanga Del Sur School of Arts and Trade
+            </h4>
+            <p class="text-white/90 text-lg mb-2">Senior High School</p>
+            <p class="text-white/70 text-sm"> 2020- 2022</p>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 3 -->
+        <div class="relative mb-8 pl-16">
+          <div class="timeline-dot"></div>
+          <div class="glass-strong rounded-xl p-6">
+            <h4 class="text-2xl font-bold mb-2 text-white flex items-center gap-2">
+              🎓 Zamboanga Del Sur School of Arts and Trade
+            </h4>
+            <p class="text-white/90 text-lg mb-2">Junior High School</p>
+            <p class="text-white/70 text-sm">2016 - 2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-white">© 2025 Hadjara A. Salem</p>
+          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-white mb-1">+63 9630801134</p>
+            <p class="text-white">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

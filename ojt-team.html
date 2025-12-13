@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OJT Team - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #F5F4ED;
+      min-height: 100vh;
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
+        <a href="blog.html" class="hover:text-blue-600 transition-colors">Blog</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors">About Me</a>
+        <a href="research.html" class="hover:text-blue-600 transition-colors">Research Project</a>
+        <a href="cv.html" class="hover:text-blue-600 transition-colors">CV</a>
+        <a href="ncip.html" class="hover:text-blue-600 transition-colors">NCIP</a>
+        <a href="scc.html" class="hover:text-blue-600 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- OJT TEAM SECTION -->
+  <section class="fade-in bg-white py-20 shadow-inner min-h-screen">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold mb-4">OJT Team – "Diskar-Tech"</h2>
+      <p class="text-lg text-gray-600 mb-10">Meet the talented individuals who made this journey possible</p>
+
+      <!-- Team Photo Placeholder -->
+      <div class="w-full h-64 bg-gray-300 mb-12 flex items-center justify-center rounded-xl shadow-lg">
+        <span class="text-xl text-gray-600">Team Photo Here</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-24 h-24 bg-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-2xl">👤</span>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Project Manager</h3>
+          <p class="text-gray-700 font-semibold">Hadjara A. Salem</p>
+          <p class="text-sm text-gray-600 mt-2">Leading the team with vision and coordination</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-24 h-24 bg-green-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-2xl">👤</span>
+          </div>
+          <h3 class="font-bold text-xl mb-2">System Quality Assurance</h3>
+          <p class="text-gray-700 font-semibold">Harra Lou S. Ramos</p>
+          <p class="text-sm text-gray-600 mt-2">Ensuring excellence in every deliverable</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-24 h-24 bg-purple-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-2xl">👤</span>
+          </div>
+          <h3 class="font-bold text-xl mb-2">System Developer</h3>
+          <p class="text-gray-700 font-semibold">Helman Dashelle Dacuma</p>
+          <p class="text-sm text-gray-600 mt-2">Building innovative solutions</p>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl p-6 mt-8">
+        <h3 class="text-2xl font-bold mb-4">Team Collaboration</h3>
+        <p class="text-gray-700">Together, the Diskar-Tech team has worked tirelessly to deliver exceptional results. Each member brings unique skills and perspectives, creating a dynamic and productive work environment that fosters growth and innovation.</p>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="index.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-8 glass-strong mt-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-2xl font-bold mb-4 text-gray-800">Contact Information</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div>
+          <p class="font-semibold text-gray-800 mb-1">Email</p>
+          <p class="text-gray-700">email@example.com</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800 mb-1">Phone</p>
+          <p class="text-gray-700">+63 XXX XXX XXXX</p>
+        </div>
+        <div>
+          <p class="font-semibold text-gray-800 mb-1">Location</p>
+          <p class="text-gray-700">Philippines</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-4 mt-4">
+        <p class="text-gray-700">© 2025 My OJT Journey Website</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

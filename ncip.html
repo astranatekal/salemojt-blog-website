@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCIP - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #A6E0D9;
+      min-height: 100vh;
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    }
+    .footer-gradient {
+      background-color: white;
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      color: black;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    .social-icon svg {
+      fill: black;
+      stroke: black;
+    }
+    .social-icon:hover {
+      border-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
+        <a href="blog.html" class="hover:text-blue-600 transition-colors">Blog</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors">About Me</a>
+        <a href="research.html" class="hover:text-blue-600 transition-colors">Research Project</a>
+        <a href="cv.html" class="hover:text-blue-600 transition-colors">CV</a>
+        <a href="ncip.html" class="hover:text-blue-600 transition-colors text-blue-600 font-semibold">NCIP</a>
+        <a href="scc.html" class="hover:text-blue-600 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- NCIP SECTION -->
+  <section class="fade-in py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">NCIP</h2>
+      <p class="text-center text-gray-600 mb-2">National Commission on Indigenous Peoples</p>
+      <p class="text-center text-gray-500 mb-10">My involvement and contributions</p>
+      
+      <div class="bg-gray-50 rounded-xl p-8 shadow-md mb-8">
+        <h3 class="text-2xl font-bold mb-4">About NCIP</h3>
+        <p class="text-lg mb-6">The National Commission on Indigenous Peoples (NCIP) is the primary government agency responsible for the formulation and implementation of policies, plans, and programs to promote and protect the rights and well-being of Indigenous Cultural Communities/Indigenous Peoples (ICCs/IPs) in the Philippines.</p>
+        
+        <p class="text-lg mb-6">Information about your work or involvement with NCIP. This section can document your experiences, projects, or contributions related to the National Commission on Indigenous Peoples. Share how your work has supported indigenous communities or how you've learned about their culture and rights.</p>
+      </div>
+
+
+      <div class="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center mb-8">
+        NCIP Related Image/Photo
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-md">
+        <h4 class="text-xl font-bold mb-4">Impact & Reflection</h4>
+        <p class="text-gray-700">Reflect on how your involvement with NCIP has impacted you personally and professionally. Share what you've learned about indigenous communities, their challenges, and how technology or your skills can contribute to their empowerment and development.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-black mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-black">© 2025 Hadjara A. Salem</p>
+          <p class="text-black/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-black mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-black mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-black mb-1">+63 9630801134</p>
+            <p class="text-black">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

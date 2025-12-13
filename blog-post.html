@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Post - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    }
+    .footer-gradient {
+      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    
+    /* Slideshow Styles */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      z-index: 1;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .slideshow-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 28px;
+      color: rgba(139, 92, 246, 0.8);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .slideshow-arrow:hover {
+      background: rgba(255, 255, 255, 1);
+      color: rgba(139, 92, 246, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .slideshow-arrow.left-0 {
+      left: 10px;
+    }
+    .slideshow-arrow.right-0 {
+      right: 10px;
+    }
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .social-icon svg {
+      fill: white;
+      stroke: white;
+    }
+    .social-icon:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 182, 193, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+    .text-glow {
+      text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .slideshow-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="glass-strong sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BLOG POST CONTENT -->
+  <section class="fade-in py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <span id="postDate" class="text-base text-white block mb-3"></span>
+        <h1 id="postTitle" class="text-3xl md:text-4xl font-bold mb-8 text-white"></h1>
+      </div>
+      
+      <!-- Slideshow Container -->
+      <div class="relative rounded-xl overflow-hidden glass inline-block w-full mb-8" id="postSlideshow">
+        <!-- Slides will be injected here by JS -->
+      </div>
+      
+      <!-- Message Content -->
+      <div class="glass-strong rounded-2xl p-6">
+        <p id="postMessage" class="text-base text-white leading-relaxed"></p>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="text-center mt-8">
+        <a href="blog.html" class="inline-flex items-center gap-2 text-white hover:text-pink-200 transition-colors font-semibold">
+          ← Back to Blog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-white">© 2025 Hadjara A. Salem</p>
+          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-white mb-1">+63 9630801134</p>
+            <p class="text-white">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const blogPosts = [
+      {
+        images: ['images/enrolment.jpg'],
+        date: 'November 27, 2025',
+        title: 'The Final Semester: Not an End, But a Beginning',
+        message: 'Enrollment done! This isn\'t just my second semester of 4th year—it\'s the pivotal starting line for my career and my future. Let\'s make every moment count.'
+      },
+      {
+        images: ['images/endores.jpg', 'images/interview.jpg', 'images/int_apprvd.jpg'],
+        date: 'December 3-5, 2025',
+        title: 'Documents, Interview and Workshop on Professionalism',
+        message: 'Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions. Approach the Interview as your stage—a chance to translate your potential into undeniable presence. And remember, the Workshop on Professionalism is your continuous commitment to growth. Master the process, and you don\'t just secure a future; you design a magnificent one. This is your time to move from aspiring to achieving.'
+      },
+      {
+        images: ['images/firtsday.jpg', 'images/dskrt_img.jpg'],
+        date: 'December 9-10, 2025',
+        title: 'First Day as an OJT Trainee',
+        message: 'Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...'
+      }
+    ];
+
+    let currentSlide = 0;
+    let autoPlayInterval;
+
+    function initPost() {
+      // Get post ID from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = parseInt(urlParams.get('id')) || 0;
+      
+      if (postId < 0 || postId >= blogPosts.length) {
+        // Invalid post ID, redirect to blog
+        window.location.href = 'blog.html';
+        return;
+      }
+      
+      const post = blogPosts[postId];
+      
+      // Set page title
+      document.title = post.title + ' - salem_myOJTBlog';
+      
+      // Set content
+      document.getElementById('postDate').textContent = post.date;
+      document.getElementById('postTitle').textContent = post.title;
+      document.getElementById('postMessage').textContent = post.message;
+      
+      // Create slideshow
+      const slideshowContainer = document.getElementById('postSlideshow');
+      slideshowContainer.innerHTML = '';
+      
+      // Add reference image for sizing
+      if (post.images.length > 0) {
+        const refImg = document.createElement('img');
+        refImg.src = post.images[0];
+        refImg.alt = post.title;
+        refImg.className = 'w-full h-auto rounded-xl opacity-0 pointer-events-none max-h-96 object-cover';
+        slideshowContainer.appendChild(refImg);
+      }
+      
+      // Add slides
+      post.images.forEach((img, index) => {
+        const slide = document.createElement('div');
+        slide.className = `slide ${index === 0 ? 'active' : ''}`;
+        slide.dataset.slide = index;
+        const imgElement = document.createElement('img');
+        imgElement.src = img;
+        imgElement.alt = post.title + ' - Image ' + (index + 1);
+        imgElement.className = 'w-full h-auto rounded-xl max-h-96 object-cover';
+        slide.appendChild(imgElement);
+        slideshowContainer.appendChild(slide);
+      });
+      
+      // Add navigation arrows if more than one image
+      if (post.images.length > 1) {
+        const leftArrow = document.createElement('button');
+        leftArrow.className = 'slideshow-arrow left-0';
+        leftArrow.innerHTML = '‹';
+        leftArrow.onclick = () => changeSlide(-1);
+        slideshowContainer.appendChild(leftArrow);
+        
+        const rightArrow = document.createElement('button');
+        rightArrow.className = 'slideshow-arrow right-0';
+        rightArrow.innerHTML = '›';
+        rightArrow.onclick = () => changeSlide(1);
+        slideshowContainer.appendChild(rightArrow);
+      }
+      
+      // Initialize slideshow
+      if (post.images.length > 1) {
+        startAutoPlay();
+      }
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('#postSlideshow .slide');
+      if (slides.length === 0) return;
+      
+      slides.forEach(slide => slide.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function changeSlide(direction) {
+      const slides = document.querySelectorAll('#postSlideshow .slide');
+      if (slides.length === 0) return;
+      
+      clearInterval(autoPlayInterval);
+      showSlide(currentSlide + direction);
+      startAutoPlay();
+    }
+
+    function startAutoPlay() {
+      const slides = document.querySelectorAll('#postSlideshow .slide');
+      if (slides.length <= 1) return;
+      
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 3000);
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', initPost);
+  </script>
+
+</body>
+</html>
+
+

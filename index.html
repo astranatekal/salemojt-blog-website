@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    
+    /* Glassmorphism Effects */
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    }
+    .footer-gradient {
+      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+    }
+    
+    /* Futuristic Accents */
+    .tech-border {
+      position: relative;
+    }
+    .tech-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
+      animation: scan 3s linear infinite;
+    }
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    /* Hover Effects */
+    .glass-hover {
+      transition: all 0.3s ease;
+    }
+    .glass-hover:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    }
+    
+    /* Futuristic Text Glow */
+    .text-glow {
+      text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+    }
+    
+    /* Slideshow Animation */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      z-index: 1;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .social-icon svg {
+      fill: white;
+      stroke: white;
+    }
+    .social-icon:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 182, 193, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+    }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: radial-gradient(ellipse at center, #FF8C94 0%, #FF6B9D 20%, #C44569 40%, #8B2F87 60%, #6A1B9A 100%);
+      margin: auto;
+      padding: 3rem;
+      border-radius: 1rem;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s;
+    }
+    .close-modal:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Slideshow Arrows */
+    .slideshow-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 30px;
+      color: rgba(139, 92, 246, 0.8);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .slideshow-arrow:hover {
+      background: rgba(255, 255, 255, 1);
+      color: rgba(139, 92, 246, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .slideshow-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="glass-strong sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
+        <a href="#" onclick="openResearchModal(); return false;" class="text-white hover:text-pink-200 transition-colors cursor-pointer">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- WELCOME SECTION -->
+  <section class="min-h-screen flex items-center justify-center fade-in py-20">
+    <div class="text-center px-8 md:px-12 w-full">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white text-glow">Welcome to My OJT Journey</h1>
+      <p class="text-xl md:text-2xl text-white mb-8">A journey of growth, learning, and professional development</p>
+      <p class="text-lg text-white max-w-3xl mx-auto">This website documents my experiences, achievements, and reflections throughout my On-the-Job Training with the Diskar-Tech team.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT WEBSITE SECTION -->
+  <section class="py-20 fade-in">
+    <div class="max-w-7xl mx-auto px-8 md:px-12 w-full">
+      <div class="glass-strong rounded-2xl p-12 md:p-16 mb-8">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white text-glow text-center">About the Website</h2>
+        <p class="text-xl text-white mb-6 text-center">This blog was created to archive my experiences, accomplishments, and reflections throughout my On-the-Job Training. It showcases my journey with the DISKAR-TECH team, my capstone achievements, and the lessons that shaped my final months as a student.</p>
+        <div class="glass rounded-lg p-6 mb-6">
+          <h3 class="text-2xl font-bold mb-4 text-white">Purpose</h3>
+          <p class="text-white mb-4">This website serves as a digital portfolio and journal of my professional development journey. It documents:</p>
+          <ul class="list-disc list-inside space-y-2 text-white">
+            <li>Daily experiences and challenges during OJT</li>
+            <li>Technical skills learned and projects completed</li>
+            <li>Team collaboration and leadership experiences</li>
+            <li>Personal growth and professional development</li>
+            <li>Research projects and academic achievements</li>
+          </ul>
+        </div>
+        <div class="glass rounded-lg p-6">
+          <h3 class="text-2xl font-bold mb-4 text-white">What You'll Find</h3>
+          <p class="text-white">Throughout this website, you'll discover detailed accounts of my work with the Diskar-Tech team, insights from my capstone project defense, and reflections on how these experiences have prepared me for my future career in technology and project management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OJT TEAM SECTION -->
+  <section class="py-20 fade-in">
+    <div class="max-w-7xl mx-auto px-8 md:px-12 w-full">
+      <div class="glass-strong rounded-2xl p-12 md:p-16 mb-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white text-glow">OJT Team – "Diskar-Tech"</h2>
+        <p class="text-xl text-white mb-10">Meet the talented individuals who made this journey possible</p>
+        
+        <div class="max-w-4xl mx-auto mb-12">
+          <img src="images/dskrt_img.jpg" alt="Diskar-Tech Team Photo" class="w-full h-auto rounded-xl">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="glass rounded-xl p-6 glass-hover">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+              <img src="images/hadj_img.jpg" alt="Hadjara A. Salem" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-bold text-xl mb-2">Project Manager</h3>
+            <p class="text-white font-semibold">Hadjara A. Salem</p>
+            <p class="text-sm text-white/80 mt-2">Leading the team with vision and coordination</p>
+          </div>
+          <div class="glass rounded-xl p-6 glass-hover">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+              <img src="images/harra_img.jpg" alt="Harra Lou S. Ramos" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-bold text-xl mb-2">System Quality Assurance</h3>
+            <p class="text-white font-semibold">Harra Lou S. Ramos</p>
+            <p class="text-sm text-white/80 mt-2">Ensuring excellence in every deliverable</p>
+          </div>
+          <div class="glass rounded-xl p-6 glass-hover">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-purple-200 flex items-center justify-center">
+              <span class="text-2xl">👤</span>
+            </div>
+            <h3 class="font-bold text-xl mb-2">System Developer</h3>
+            <p class="text-white font-semibold">Helman Dashelle Dacuma</p>
+            <p class="text-sm text-white/80 mt-2">Building innovative solutions</p>
+          </div>
+        </div>
+
+        <div class="glass rounded-xl p-6 max-w-3xl mx-auto">
+          <h3 class="text-2xl font-bold mb-4">Team Collaboration</h3>
+          <p class="text-white">Together, the Diskar-Tech team has worked tirelessly to deliver exceptional results. Each member brings unique skills and perspectives, creating a dynamic and productive work environment that fosters growth and innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDESHOW SECTION -->
+  <section class="py-20 fade-in">
+    <div class="max-w-7xl mx-auto px-8 md:px-12 w-full">
+      <div class="glass-strong rounded-2xl p-12 md:p-16 mb-8 text-center">
+        <h3 class="text-4xl md:text-5xl font-bold mb-6 text-white text-glow">Recent Memories With My OJT Team</h3>
+        <p class="text-xl text-white mb-10">Relive the moments that made our journey special</p>
+        
+        <div class="max-w-6xl mx-auto mb-8">
+          <div class="relative rounded-xl overflow-hidden glass inline-block w-full" id="slideshow-container">
+            <!-- Reference image for container sizing (hidden but maintains layout) -->
+            <img src="images/endores.jpg" alt="Team Memory 1" class="w-full h-auto rounded-xl opacity-0 pointer-events-none">
+            <!-- Slideshow images -->
+            <div class="slide active" data-slide="0">
+              <img src="images/endores.jpg" alt="Team Memory 1" class="w-full h-auto rounded-xl">
+            </div>
+            <div class="slide" data-slide="1">
+              <img src="images/interview.jpg" alt="Team Memory 2" class="w-full h-auto rounded-xl">
+            </div>
+            <div class="slide" data-slide="2">
+              <img src="images/int_apprvd.jpg" alt="Team Memory 3" class="w-full h-auto rounded-xl">
+            </div>
+            <!-- Navigation Arrows -->
+            <button class="slideshow-arrow left-0" onclick="changeSlide(-1)">‹</button>
+            <button class="slideshow-arrow right-0" onclick="changeSlide(1)">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPSTONE SECTION -->
+  <section class="py-20 fade-in">
+    <div class="max-w-7xl mx-auto px-8 md:px-12 w-full">
+      <div class="glass-strong rounded-2xl p-12 md:p-16 mb-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white text-glow">Capstone Team – "DISKARTECH"</h2>
+        <p class="text-xl text-white mb-10 max-w-3xl mx-auto">Our capstone team embodies dedication and collaboration. Together, we turned ideas into functional systems, faced academic challenges with teamwork, and proudly defended our final output.</p>
+        
+        <div class="max-w-4xl mx-auto mb-10">
+          <img src="images/dfns_img.jpg" alt="Capstone Final Defense Photo" class="w-full h-auto rounded-xl">
+        </div>
+
+        <div class="glass rounded-xl p-8 text-left max-w-4xl mx-auto mb-8">
+          <h3 class="text-2xl font-bold mb-4">Our Journey</h3>
+          <p class="text-white mb-4">The DISKARTECH capstone project represents the culmination of our academic journey. Through months of planning, development, and refinement, we created a system that addresses real-world challenges and demonstrates our technical capabilities.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="glass rounded-lg p-4">
+              <h4 class="font-bold text-lg mb-2 text-white">Project Goals</h4>
+              <ul class="list-disc list-inside space-y-1 text-white text-sm">
+                <li>Develop a functional system</li>
+                <li>Apply learned technologies</li>
+                <li>Demonstrate teamwork</li>
+                <li>Meet academic requirements</li>
+              </ul>
+            </div>
+            <div class="glass rounded-lg p-4">
+              <h4 class="font-bold text-lg mb-2 text-white">Key Achievements</h4>
+              <ul class="list-disc list-inside space-y-1 text-white text-sm">
+                <li>Successful project defense</li>
+                <li>Positive feedback from panel</li>
+                <li>System implementation</li>
+                <li>Team collaboration excellence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-white">© 2025 Hadjara A. Salem</p>
+          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-white mb-1">+63 9630801134</p>
+            <p class="text-white">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    let autoPlayInterval;
+    let isManualControl = false;
+
+    function initSlideshow() {
+      const slides = document.querySelectorAll('.slide[data-slide]');
+      const totalSlides = slides.length;
+
+      function showSlide(n) {
+        // Remove active class from all slides
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        // Calculate the slide index
+        currentSlide = (n + totalSlides) % totalSlides;
+        
+        // Add active class to current slide
+        slides[currentSlide].classList.add('active');
+      }
+
+      function startAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(() => {
+          if (!isManualControl) {
+            showSlide(currentSlide + 1);
+          }
+        }, 3000); // Change slide every 3 seconds
+      }
+
+      window.changeSlide = function(direction) {
+        isManualControl = true;
+        clearInterval(autoPlayInterval);
+        showSlide(currentSlide + direction);
+        
+        // Restart auto-play after 5 seconds of inactivity
+        setTimeout(() => {
+          isManualControl = false;
+          startAutoPlay();
+        }, 5000);
+      };
+
+      showSlide(0); // Initialize with the first slide
+      startAutoPlay(); // Start auto-play
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', initSlideshow);
+
+    // Research Modal Functions
+    let currentResearchSlide = 0;
+    let researchAutoPlayInterval;
+    let isResearchManualControl = false;
+
+    function openResearchModal() {
+      const modal = document.getElementById('researchModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      initResearchSlideshow();
+    }
+
+    function closeResearchModal() {
+      const modal = document.getElementById('researchModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      clearInterval(researchAutoPlayInterval);
+    }
+
+    function initResearchSlideshow() {
+      const slides = document.querySelectorAll('#researchSlideshow .slide[data-slide]');
+      if (slides.length === 0) return;
+      
+      const totalSlides = slides.length;
+
+      function showSlide(n) {
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        currentResearchSlide = (n + totalSlides) % totalSlides;
+        slides[currentResearchSlide].classList.add('active');
+      }
+
+      function startAutoPlay() {
+        clearInterval(researchAutoPlayInterval);
+        researchAutoPlayInterval = setInterval(() => {
+          if (!isResearchManualControl) {
+            showSlide(currentResearchSlide + 1);
+          }
+        }, 3000);
+      }
+
+      window.changeResearchSlide = function(direction) {
+        isResearchManualControl = true;
+        clearInterval(researchAutoPlayInterval);
+        showSlide(currentResearchSlide + direction);
+        
+        setTimeout(() => {
+          isResearchManualControl = false;
+          startAutoPlay();
+        }, 5000);
+      };
+
+      showSlide(0);
+      startAutoPlay();
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('researchModal');
+      if (event.target === modal) {
+        closeResearchModal();
+      }
+    }
+  </script>
+
+  <!-- Research Project Modal -->
+  <div id="researchModal" class="modal">
+    <div class="modal-content glass-strong">
+      <span class="close-modal" onclick="closeResearchModal()">&times;</span>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-4xl md:text-5xl font-bold text-center mb-3 text-white">Research Project</h2>
+          <p class="text-center text-white/90 mb-10 text-lg">Exploring innovative solutions and contributing to meaningful research</p>
+        </div>
+        
+        <!-- Slideshow Container -->
+        <div class="relative rounded-xl overflow-hidden glass inline-block w-full mb-8" id="researchSlideshow">
+          <!-- Reference image for container sizing (hidden but maintains layout) -->
+          <img src="images/resrchsix.jpg" alt="Research Festival 2025" class="w-full h-auto rounded-xl opacity-0 pointer-events-none max-h-96 object-cover">
+          <!-- Slideshow images -->
+          <div class="slide active" data-slide="0">
+            <img src="images/resrchsix.jpg" alt="Research Festival 2025" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <div class="slide" data-slide="1">
+            <img src="images/resrchfestone.jpg" alt="Research Image 1" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <div class="slide" data-slide="2">
+            <img src="images/resrchtre.jpg" alt="Research Image 2" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <div class="slide" data-slide="3">
+            <img src="images/resrchtwo.jpg" alt="Research Image 3" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <div class="slide" data-slide="4">
+            <img src="images/resrchfyb.jpg" alt="Research Image 4" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <div class="slide" data-slide="5">
+            <img src="images/resrchfor.jpg" alt="Research Image 5" class="w-full h-auto rounded-xl max-h-96 object-cover">
+          </div>
+          <!-- Navigation Arrows -->
+          <button class="slideshow-arrow left-0" onclick="changeResearchSlide(-1)">‹</button>
+          <button class="slideshow-arrow right-0" onclick="changeResearchSlide(1)">›</button>
+        </div>
+
+        <!-- Event Description Container -->
+        <div class="glass-strong rounded-2xl p-6">
+          <h3 class="text-xl font-bold mb-4 text-center text-white">Research Festival 2025</h3>
+          <div class="glass rounded-lg p-4">
+            <p class="text-white text-lg leading-relaxed">
+              Today marked one of the most memorable academic events of the year: the Research Festival 2025 at Saint Columban College. Under the inspiring theme, "Innovation Minds, Impactful Research: Empowering Change Through Discovery," the festival was a vibrant celebration of ideas, collaboration, and the courage to share groundbreaking work.
+
+The atmosphere was electric with creativity and passion. Witnessing students proudly presenting their projects, exchanging insights, and supporting one another reinforced the true purpose of research—discovery, growth, and making a tangible difference.
+
+Alongside my team, Diskar-Tech, I had the privilege of presenting our research output: "D'Marsians: Web-Based Admission & Progress Tracking with Real-Time Visualization System." Standing on the stage, explaining our system's functionality, was the culmination of countless late nights and dedicated teamwork. Every revision and challenge finally clicked into place.
+
+Held at the Youth Development Center (YDC) in Pagadian City, the Research Festival 2025 was far more than a requirement—it was a deeply fulfilling experience that strengthened my confidence and deepened my commitment to learning. It proved that meaningful ideas, when shared, truly have the power to create lasting impact..
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

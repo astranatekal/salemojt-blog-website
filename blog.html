@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    }
+    .footer-gradient {
+      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+    }
+    .tech-border {
+      position: relative;
+    }
+    .tech-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
+      animation: scan 3s linear infinite;
+    }
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(200, 220, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 220, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .glass-hover {
+      transition: all 0.3s ease;
+    }
+    .glass-hover:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+    }
+    .text-glow {
+      text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+    }
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .social-icon svg {
+      fill: white;
+      stroke: white;
+    }
+    .social-icon:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 182, 193, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+    
+    .blog-card {
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card > div:first-child {
+      flex-shrink: 0;
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+    }
+    .modal-content {
+      background: radial-gradient(ellipse at center, #FF8C94 0%, #FF6B9D 20%, #C44569 40%, #8B2F87 60%, #6A1B9A 100%);
+      margin: 5% auto;
+      max-width: 900px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s;
+    }
+    .close-modal:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .modal-slideshow-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .modal-slide {
+      display: none;
+    }
+    .modal-slide.active {
+      display: block;
+    }
+    .modal-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .modal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 24px;
+      color: rgba(139, 92, 246, 0.8);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .modal-arrow:hover {
+      background: rgba(255, 255, 255, 1);
+      color: rgba(139, 92, 246, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .modal-arrow.left-0 {
+      left: 10px;
+    }
+    .modal-arrow.right-0 {
+      right: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .modal-content {
+        margin: 10% auto;
+        width: 95%;
+      }
+      .modal-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="glass-strong sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BLOG SECTION -->
+  <section class="fade-in py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white text-glow">My OJT Blog</h2>
+      <p class="text-center text-white mb-12 text-lg">Documenting my journey, experiences, and growth</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Blog Post 1 -->
+        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
+          <div class="h-40 overflow-hidden">
+            <img src="images/enrolment.jpg" alt="the first step" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <span class="text-sm text-white/70">November 27, 2025</span>
+            <h3 class="text-lg font-bold mt-1 mb-2 text-white">The Final Semester: Not an End, But a Beginning</h3>
+            <p class="text-white/90 mb-3 text-sm flex-grow">Enrollment done! This isn't just my second semester of 4th year—it's the pivotal starting line for my career and my future. Let's make every moment count.</p>
+            <a href="blog-post.html?id=0" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
+          <div class="h-40 overflow-hidden">
+            <img src="images/endores.jpg" alt="Documents and Interview" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <span class="text-sm text-white/70">December 3-5, 2025</span>
+            <h3 class="text-lg font-bold mt-1 mb-2 text-white">Documents, Interview and Workshop on Professionalism</h3>
+            <p class="text-white/90 mb-3 text-sm flex-grow">Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions.</p>
+            <a href="blog-post.html?id=1" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
+          <div class="h-40 overflow-hidden">
+            <img src="images/firtsday.jpg" alt="First Day as an OJT Trainee" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <span class="text-sm text-white/70">December 9-10, 2025</span>
+            <h3 class="text-lg font-bold mt-1 mb-2 text-white">First Day as an OJT Trainee</h3>
+            <p class="text-white/90 mb-3 text-sm flex-grow">Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...</p>
+            <a href="blog-post.html?id=2" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="blogModal" class="modal">
+    <div class="modal-content glass-strong rounded-xl p-8 relative">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div class="text-center mb-6">
+        <span id="modalDate" class="text-base text-white block mb-3"></span>
+        <h3 id="modalTitle" class="text-3xl md:text-4xl font-bold mb-6 text-white"></h3>
+      </div>
+      <div class="modal-slideshow-container relative mb-6">
+        <div id="modalSlidesContainer" class="relative rounded-lg overflow-hidden">
+          <!-- Slides will be injected here by JS -->
+        </div>
+        <button class="modal-arrow left-0" onclick="changeModalSlide(-1)">‹</button>
+        <button class="modal-arrow right-0" onclick="changeModalSlide(1)">›</button>
+      </div>
+      <div class="text-center">
+        <p id="modalMessage" class="text-base text-white leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-white">© 2025 Hadjara A. Salem</p>
+          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-white mb-1">+63 9630801134</p>
+            <p class="text-white">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const blogPosts = [
+      {
+        images: ['images/enrolment.jpg'],
+        date: 'November 27, 2025',
+        title: 'The Final Semester: Not an End, But a Beginning',
+        message: 'Enrollment done! This isn\'t just my second semester of 4th year—it\'s the pivotal starting line for my career and my future. Let\'s make every moment count.'
+      },
+      {
+        images: ['images/endores.jpg', 'images/interview.jpg', 'images/int_apprvd.jpg'],
+        date: 'December 3-5, 2025',
+        title: 'Documents, Interview and Workshop on Professionalism',
+        message: 'Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions. Approach the Interview as your stage—a chance to translate your potential into undeniable presence. And remember, the Workshop on Professionalism is your continuous commitment to growth. Master the process, and you don\'t just secure a future; you design a magnificent one. This is your time to move from aspiring to achieving.'
+      },
+      {
+        images: ['images/firtsday.jpg', 'images/dskrt_img.jpg'],
+        date: 'December 9-10, 2025',
+        title: 'First Day as an OJT Trainee',
+        message: 'Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...'
+      }
+    ];
+
+    let currentModalPost = 0;
+    let currentModalSlide = 0;
+
+    function openModal(postIndex) {
+      currentModalPost = postIndex;
+      currentModalSlide = 0;
+      const post = blogPosts[postIndex];
+      
+      // Set modal content
+      document.getElementById('modalDate').textContent = post.date;
+      document.getElementById('modalTitle').textContent = post.title;
+      document.getElementById('modalMessage').textContent = post.message;
+      
+      // Create slides
+      const slidesContainer = document.getElementById('modalSlidesContainer');
+      slidesContainer.innerHTML = '';
+      
+      post.images.forEach((img, index) => {
+        const slide = document.createElement('div');
+        slide.className = `modal-slide ${index === 0 ? 'active' : ''}`;
+        slide.innerHTML = `<img src="${img}" alt="Blog Image ${index + 1}">`;
+        slidesContainer.appendChild(slide);
+      });
+      
+      // Show modal
+      document.getElementById('blogModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('blogModal').style.display = 'none';
+    }
+
+    function changeModalSlide(direction) {
+      const post = blogPosts[currentModalPost];
+      const slides = document.querySelectorAll('#modalSlidesContainer .modal-slide');
+      const totalSlides = slides.length;
+      
+      currentModalSlide = (currentModalSlide + direction + totalSlides) % totalSlides;
+      
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentModalSlide) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('blogModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>
+

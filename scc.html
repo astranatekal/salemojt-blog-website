@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCC - salem_myOJTBlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #90EE90;
+      min-height: 100vh;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    }
+    .footer-gradient {
+      background-color: white;
+    }
+    .fade-in { animation: fadeIn 1.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+    
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      color: black;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    .social-icon svg {
+      fill: black;
+      stroke: black;
+    }
+    .social-icon:hover {
+      border-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+      <h1 class="text-2xl font-bold mb-4 md:mb-0">OJT Journey</h1>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
+        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
+        <a href="blog.html" class="hover:text-blue-600 transition-colors">Blog</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors">About Me</a>
+        <a href="research.html" class="hover:text-blue-600 transition-colors">Research Project</a>
+        <a href="cv.html" class="hover:text-blue-600 transition-colors">CV</a>
+        <a href="ncip.html" class="hover:text-blue-600 transition-colors">NCIP</a>
+        <a href="scc.html" class="hover:text-blue-600 transition-colors text-blue-600 font-semibold">SCC</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SCC SECTION -->
+  <section class="fade-in py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- About Saint Columban College -->
+      <div class="glass-strong rounded-2xl p-8 mb-8">
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">Founded in 1957, Saint Columban College (SCC) is a prestigious Catholic institution located at Corner V. Cerilles - Sagun Streets, San Francisco, Pagadian City. Rooted in the values of faith, excellence, and service, SCC has been a pillar of quality education, shaping generations of students into competent and compassionate individuals.</p>
+        <p class="text-gray-800 text-lg leading-relaxed">With a strong commitment to academic excellence, moral integrity, and holistic development, the school provides a nurturing environment where students are encouraged to grow intellectually and spiritually. Through its well-rounded programs and dedication to innovation, SCC continues to empower learners to become future leaders who embody the values of knowledge, service, and faith.</p>
+      </div>
+
+      <!-- Vision, Mission, Goals -->
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Vision, Mission, Goals and Core Values</h2>
+      
+      <div class="space-y-6 mb-8">
+        <!-- Vision -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">VISION</h3>
+          </div>
+          <p class="text-gray-700">Leading Catholic learning institution and evangelizing community in the pursuit of excellence and commitment to forming persons in communion with God in Jesus Christ, one another, and the rest of creation.</p>
+        </div>
+
+        <!-- Mission -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">MISSION</h3>
+          </div>
+          <p class="text-gray-700">We, at Saint Columban College, guided by the gospel values of WISDOM, JUSTICE and CHARITY, commit ourselves to develop fully the talents, and capabilities of the students through holistic quality programs, which aim to help them live their faith, attain academic excellence and perform their responsibilities towards God, society and the rest of the creation.</p>
+        </div>
+
+        <!-- Goals -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7m0 0l-3-3m3 3l3-3"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">GOALS</h3>
+          </div>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span>To create a climate that will enable the students to cultivate the values of wisdom, justice, and charity.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span>To develop students who manifest critical thinking and problem-solving skills through scientific investigation.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span>To produce technologically skilled graduates who can articulate their thoughts in cohesive and understandable terms.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span>To create an atmosphere that deepens the social commitment of students to help improve the quality of life in their community and the environment.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Core Values, Advocacy, SCC ACTS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Core Values -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex flex-col items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">CORE VALUES</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="bg-green-100 rounded-lg p-3 text-center">
+              <p class="text-gray-800 font-semibold">WISDOM</p>
+            </div>
+            <div class="bg-green-100 rounded-lg p-3 text-center">
+              <p class="text-gray-800 font-semibold">JUSTICE</p>
+            </div>
+            <div class="bg-green-100 rounded-lg p-3 text-center col-span-2">
+              <p class="text-gray-800 font-semibold">CHARITY</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advocacy -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex flex-col items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">ADVOCACY</h3>
+          </div>
+          <p class="text-gray-700 text-sm">Core values are the fundamental beliefs of a person or organization. These guiding principles dictate behavior and can help people understand the difference between right and wrong. In Saint Columban College, the core values are embedded in SCC ACTS. It is in active voice to denote that the SCC community does not sit on a problem or issue, but resolves or addresses it.</p>
+        </div>
+
+        <!-- SCC ACTS -->
+        <div class="glass rounded-xl p-6">
+          <div class="flex flex-col items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">SCC ACTS</h3>
+          </div>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li><span class="font-bold text-yellow-600">A</span>chieves Excellence</li>
+            <li><span class="font-bold text-yellow-600">C</span>ultivates a Peaceful Environment</li>
+            <li><span class="font-bold text-yellow-600">T</span>akes Care of Mother Earth</li>
+            <li><span class="font-bold text-yellow-600">S</span>erves Humanity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 footer-gradient mt-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Left Column: Social Media Links -->
+        <div class="flex flex-col md:items-start items-center">
+          <h4 class="text-lg font-semibold text-black mb-4">Follow Me</h4>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Behance">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
+              </svg>
+            </a>
+            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Copyright -->
+        <div class="text-center">
+          <p class="text-black">© 2025 Hadjara A. Salem</p>
+          <p class="text-black/80 text-sm mt-1">All Rights Reserved</p>
+        </div>
+
+        <!-- Right Column: Contact Details -->
+        <div class="flex flex-col md:items-end items-center">
+          <h4 class="text-lg font-semibold text-black mb-4">Contact</h4>
+          <div class="text-right md:text-right text-center">
+            <p class="text-black mb-1">hadjara.abbas.salem@gmail.com</p>
+            <p class="text-black mb-1">+63 9630801134</p>
+            <p class="text-black">Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
