@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog - salem_myOJTBlog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * {
       font-family: 'Montserrat', sans-serif;
     }
+
     body {
-      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
+      background: #050505;
       background-attachment: fixed;
       min-height: 100vh;
+      color: white;
     }
+
     .glass {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     }
+
     .glass-strong {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(10, 10, 15, 0.8);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
     }
+
     .footer-gradient {
-      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .tech-border {
       position: relative;
     }
+
     .tech-border::before {
       content: '';
       position: absolute;
@@ -47,28 +57,38 @@
       background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.5), transparent);
       animation: scan 3s linear infinite;
     }
+
     @keyframes scan {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
     }
+
     .grid-pattern {
-      background-image: 
+      background-image:
         linear-gradient(rgba(200, 220, 255, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(200, 220, 255, 0.1) 1px, transparent 1px);
       background-size: 20px 20px;
     }
+
     .glass-hover {
       transition: all 0.3s ease;
     }
+
     .glass-hover:hover {
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.15);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
     }
+
     .text-glow {
-      text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
-    
+
     /* Social Media Icons */
     .social-icon {
       display: flex;
@@ -77,35 +97,34 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
       transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
     }
-    .social-icon svg {
-      fill: white;
-      stroke: white;
-    }
+
     .social-icon:hover {
-      border-color: rgba(255, 255, 255, 0.9);
-      background: rgba(255, 182, 193, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
-    
+
     .blog-card {
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
+
     .blog-card:hover {
       transform: translateY(-5px);
     }
-    .blog-card > div:first-child {
+
+    .blog-card>div:first-child {
       flex-shrink: 0;
     }
-    
+
     /* Modal Styles */
     .modal {
       display: none;
@@ -119,47 +138,58 @@
       background-color: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(5px);
     }
+
     .modal-content {
-      background: radial-gradient(ellipse at center, #FF8C94 0%, #FF6B9D 20%, #C44569 40%, #8B2F87 60%, #6A1B9A 100%);
-      margin: 5% auto;
-      max-width: 900px;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 2% auto;
       width: 90%;
+      max-width: 1000px;
       max-height: 90vh;
       overflow-y: auto;
       padding: 3rem;
       border-radius: 1rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      color: white;
     }
+
     .close-modal {
       position: absolute;
       top: 15px;
       right: 25px;
       font-size: 35px;
       font-weight: bold;
-      color: white;
+      color: #1a1a1a;
       cursor: pointer;
       z-index: 1001;
       transition: color 0.3s;
     }
+
     .close-modal:hover {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(0, 0, 0, 0.6);
     }
+
     .modal-slideshow-container {
       position: relative;
       width: 100%;
       margin-bottom: 20px;
     }
+
     .modal-slide {
       display: none;
     }
+
     .modal-slide.active {
       display: block;
     }
+
     .modal-slide img {
       width: 100%;
       height: auto;
       border-radius: 8px;
     }
+
     .modal-arrow {
       position: absolute;
       top: 50%;
@@ -170,7 +200,7 @@
       height: 45px;
       border-radius: 50%;
       font-size: 24px;
-      color: rgba(139, 92, 246, 0.8);
+      color: rgba(0, 0, 0, 0.8);
       cursor: pointer;
       z-index: 10;
       display: flex;
@@ -179,26 +209,31 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
+
     .modal-arrow:hover {
       background: rgba(255, 255, 255, 1);
       color: rgba(139, 92, 246, 1);
       transform: translateY(-50%) scale(1.1);
     }
+
     .modal-arrow.left-0 {
       left: 10px;
     }
+
     .modal-arrow.right-0 {
       right: 10px;
     }
-    
+
     @media (max-width: 768px) {
       nav {
         padding: 1rem !important;
       }
+
       nav h1 {
         font-size: 1.5rem !important;
         margin-bottom: 0.75rem !important;
       }
+
       nav div {
         gap: 0.5rem 0.75rem !important;
         font-size: 0.875rem !important;
@@ -206,159 +241,164 @@
         justify-content: center;
         width: 100%;
       }
+
       nav div a {
         white-space: nowrap;
         padding: 0.25rem 0.5rem;
       }
+
       .modal-content {
         margin: 10% auto;
         width: 95%;
         padding: 2rem 1.5rem;
       }
+
       .modal-arrow {
         width: 40px;
         height: 40px;
         font-size: 20px;
       }
+
       h2 {
         font-size: 1.75rem !important;
       }
+
       .text-4xl {
         font-size: 1.75rem !important;
       }
+
       .text-5xl {
         font-size: 2rem !important;
       }
+
       .social-icon {
         width: 36px;
         height: 36px;
       }
+
       .social-icon svg {
         width: 1.5rem;
         height: 1.5rem;
       }
     }
-    
+
     @media (max-width: 640px) {
       nav {
         padding: 0.75rem !important;
       }
+
       nav h1 {
         font-size: 1.25rem !important;
         margin-bottom: 0.5rem !important;
       }
+
       nav div {
         gap: 0.375rem 0.5rem !important;
         font-size: 0.75rem !important;
         flex-wrap: wrap;
         justify-content: center;
       }
+
       nav div a {
         padding: 0.25rem 0.375rem;
       }
+
       .modal-content {
         margin: 5% auto;
         width: 98%;
         padding: 1.5rem 1rem;
       }
+
       .close-modal {
         font-size: 1.5rem;
         top: 0.5rem;
         right: 1rem;
       }
+
       .modal-arrow {
         width: 35px;
         height: 35px;
         font-size: 18px;
       }
+
       .blog-card {
         margin-bottom: 1rem;
       }
     }
-    
+
     @media (max-width: 480px) {
       nav {
         padding: 0.5rem !important;
       }
+
       nav h1 {
         font-size: 1.125rem !important;
         margin-bottom: 0.5rem !important;
       }
+
       nav div {
         gap: 0.25rem 0.375rem !important;
         font-size: 0.6875rem !important;
       }
+
       nav div a {
         padding: 0.2rem 0.3rem;
       }
     }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER NAVIGATION -->
   <header class="glass-strong sticky top-0 z-50">
     <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
-      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white">HADJARA BLOG</h1>
       <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-base md:text-lg">
-        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
-        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">Blog</a>
-        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
-        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
-        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
-        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
-        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+        <a href="index.html" class="text-white hover:text-pink-400 transition-colors">Home</a>
+        <a href="blog.html"
+          class="text-white hover:text-pink-400 transition-colors font-semibold border-b-2 border-pink-500/50">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-400 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-400 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-400 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-400 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-400 transition-colors">SCC</a>
       </div>
     </nav>
   </header>
 
-  <!-- BLOG SECTION -->
-  <section class="fade-in py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white text-glow">My OJT Blog</h2>
-      <p class="text-center text-white mb-12 text-lg">Documenting my journey, experiences, and growth</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Blog Post 1 -->
-        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
-          <div class="h-40 overflow-hidden">
-            <img src="images/enrolment.jpg" alt="the first step" class="w-full h-full object-cover">
-          </div>
-          <div class="p-4 flex flex-col flex-grow">
-            <span class="text-sm text-white/70">November 27, 2025</span>
-            <h3 class="text-lg font-bold mt-1 mb-2 text-white">The Final Semester: Not an End, But a Beginning</h3>
-            <p class="text-white/90 mb-3 text-sm flex-grow">Enrollment done! This isn't just my second semester of 4th year—it's the pivotal starting line for my career and my future. Let's make every moment count.</p>
-            <a href="blog-post.html?id=0" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 2 -->
-        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
-          <div class="h-40 overflow-hidden">
-            <img src="images/endores.jpg" alt="Documents and Interview" class="w-full h-full object-cover">
-          </div>
-          <div class="p-4 flex flex-col flex-grow">
-            <span class="text-sm text-white/70">December 3-5, 2025</span>
-            <h3 class="text-lg font-bold mt-1 mb-2 text-white">Documents, Interview and Workshop on Professionalism</h3>
-            <p class="text-white/90 mb-3 text-sm flex-grow">Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions.</p>
-            <a href="blog-post.html?id=1" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 3 -->
-        <article class="blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col">
-          <div class="h-40 overflow-hidden">
-            <img src="images/firtsday.jpg" alt="First Day as an OJT Trainee" class="w-full h-full object-cover">
-          </div>
-          <div class="p-4 flex flex-col flex-grow">
-            <span class="text-sm text-white/70">December 9-10, 2025</span>
-            <h3 class="text-lg font-bold mt-1 mb-2 text-white">First Day as an OJT Trainee</h3>
-            <p class="text-white/90 mb-3 text-sm flex-grow">Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...</p>
-            <a href="blog-post.html?id=2" class="text-white hover:text-pink-200 font-semibold border-b border-white/50 cursor-pointer mt-auto">Read More →</a>
-          </div>
-        </article>
-      </div>
+  <!-- BLOG HEADER -->
+  <section class="fade-in pt-32 pb-20 relative">
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white uppercase">
+        OJT <span class="text-pink-500">EXPERIENCES</span>
+      </h2>
+      <p class="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
+        A detailed log of my daily activities, challenges, and growth as an IT intern at NCIP.
+      </p>
     </div>
+  </section>
+  <div class="max-w-7xl mx-auto px-6">
+    <div id="blogList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
   </section>
 
   <!-- MODAL -->
@@ -366,8 +406,8 @@
     <div class="modal-content glass-strong rounded-xl p-8 relative">
       <span class="close-modal" onclick="closeModal()">&times;</span>
       <div class="text-center mb-6">
-        <span id="modalDate" class="text-base text-white block mb-3"></span>
-        <h3 id="modalTitle" class="text-3xl md:text-4xl font-bold mb-6 text-white"></h3>
+        <span id="modalDate" class="text-base text-gray-600 block mb-3"></span>
+        <h3 id="modalTitle" class="text-3xl md:text-4xl font-bold mb-6 text-gray-900"></h3>
       </div>
       <div class="modal-slideshow-container relative mb-6">
         <div id="modalSlidesContainer" class="relative rounded-lg overflow-hidden">
@@ -377,90 +417,154 @@
         <button class="modal-arrow right-0" onclick="changeModalSlide(1)">›</button>
       </div>
       <div class="text-center">
-        <p id="modalMessage" class="text-base text-white leading-relaxed"></p>
+        <p id="modalMessage" class="text-base text-gray-700 leading-relaxed"></p>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="py-8 footer-gradient mt-10">
+  <footer class="py-12 bg-black border-t border-white/10 mt-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <!-- Left Column: Social Media Links -->
-        <div class="flex flex-col md:items-start items-center">
-          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
-          <div class="flex gap-4">
-            <a href="#" class="social-icon" aria-label="Facebook">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="Instagram">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="TikTok">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="Behance">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
-              </svg>
-            </a>
-            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <div class="text-center md:text-left">
+          <h4 class="text-xl font-bold mb-4 text-white uppercase tracking-widest">Connect</h4>
+          <div class="flex gap-4 justify-center md:justify-start">
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">IG</a>
+            <a href="#" class="social-icon">LN</a>
           </div>
         </div>
-
-        <!-- Center Column: Copyright -->
         <div class="text-center">
-          <p class="text-white">© 2025 Hadjara A. Salem</p>
-          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+          <p class="text-white/40 text-sm mb-2">© 2025 ALL RIGHTS RESERVED</p>
+          <p class="text-white font-bold tracking-tighter">HADJARA A. SALEM</p>
         </div>
-
-        <!-- Right Column: Contact Details -->
-        <div class="flex flex-col md:items-end items-center">
-          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
-          <div class="text-right md:text-right text-center">
-            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
-            <p class="text-white mb-1">+63 9630801134</p>
-            <p class="text-white">Philippines</p>
-          </div>
+        <div class="text-center md:text-right">
+          <p class="text-white/60 font-light italic">"Designing the future, one post at a time."</p>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="blog-data.js?v=100"></script>
   <script>
-    const blogPosts = [
-      {
-        images: ['images/enrolment.jpg'],
-        date: 'November 27, 2025',
-        title: 'The Final Semester: Not an End, But a Beginning',
-        message: 'Enrollment done! This isn\'t just my second semester of 4th year—it\'s the pivotal starting line for my career and my future. Let\'s make every moment count.'
-      },
-      {
-        images: ['images/endores.jpg', 'images/interview.jpg', 'images/int_apprvd.jpg'],
-        date: 'December 3-5, 2025',
-        title: 'Documents, Interview and Workshop on Professionalism',
-        message: 'Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions. Approach the Interview as your stage—a chance to translate your potential into undeniable presence. And remember, the Workshop on Professionalism is your continuous commitment to growth. Master the process, and you don\'t just secure a future; you design a magnificent one. This is your time to move from aspiring to achieving.'
-      },
-      {
-        images: ['images/firtsday.jpg', 'images/dskrt_img.jpg'],
-        date: 'December 9-10, 2025',
-        title: 'First Day as an OJT Trainee',
-        message: 'Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...'
-      }
-    ];
+    // Render blog cards as grid items on the main feed
+    function renderBlogList() {
+      const container = document.getElementById('blogList');
+      if (!container || !Array.isArray(blogPosts)) return;
 
+      container.innerHTML = '';
+
+      // Setup grid layout
+      container.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full";
+
+      blogPosts.forEach((post, index) => {
+        const article = document.createElement('article');
+        article.className = 'blog-card glass glass-hover rounded-xl overflow-hidden border border-white/30 flex flex-col shadow-lg transition-transform duration-300 hover:-translate-y-2';
+
+        let imageMarkup = '';
+        if (!post.images || post.images.length === 0) {
+          imageMarkup = '<span class="text-white/30 text-xs tracking-widest font-bold">NO IMAGE</span>';
+        } else {
+          let slidesHtml = '';
+          post.images.forEach((img, imgIdx) => {
+            slidesHtml += `<img src="${img}" class="slide-${index} w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${imgIdx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" alt="Slide ${imgIdx + 1}">`;
+          });
+
+          let controlsHtml = '';
+          if (post.images.length > 1) {
+            controlsHtml = `
+                <div class="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <button onclick="changeFeedSlide(${index}, -1, event)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 pointer-events-auto">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                  </button>
+                  <button onclick="changeFeedSlide(${index}, 1, event)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 pointer-events-auto">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                  </button>
+                </div>
+                <!-- Slide Indicator -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                  ${post.images.map((_, i) => `<div class="slide-indicator-${index} w-1.5 h-1.5 rounded-full bg-white/30 transition-all duration-300 ${i === 0 ? 'bg-white scale-125' : ''}"></div>`).join('')}
+                </div>
+              `;
+          }
+
+          imageMarkup = slidesHtml + controlsHtml;
+        }
+
+        const cardText = post.cardText || post.message || '';
+
+        article.innerHTML = `
+          <div class="h-64 overflow-hidden relative group ${!post.images || post.images.length === 0 ? 'bg-black/5 flex items-center justify-center' : ''}" id="feed-slider-${index}" data-current-slide="0" data-total-slides="${post.images ? post.images.length : 0}">
+            ${imageMarkup}
+          </div>
+          <div class="p-6 flex flex-col flex-grow relative">
+            <span class="text-sm text-pink-600 font-bold tracking-wide uppercase mb-2 block">${post.date.split(':')[0]}</span>
+            <h3 class="text-2xl font-black text-white leading-tight mb-3">${post.title}</h3>
+            <p class="text-white/60 text-sm flex-grow leading-relaxed mb-6">${cardText.substring(0, 100)}${cardText.length > 100 ? '...' : ''}</p>
+            <a href="blog-post.html?id=${index}" class="inline-flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-full font-bold transition-all mt-auto w-max group/btn">
+              <span>Read More</span>
+              <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        `;
+
+        container.appendChild(article);
+      });
+    }
+
+    // Function to change slides strictly on the main feed thumbnail
+    function changeFeedSlide(postIndex, direction, event) {
+      if (event) event.preventDefault(); // Stop navigation from clicking arrow
+
+      const slider = document.getElementById(`feed-slider-${postIndex}`);
+      if (!slider) return;
+
+      let currentSlide = parseInt(slider.getAttribute('data-current-slide'));
+      const totalSlides = parseInt(slider.getAttribute('data-total-slides'));
+
+      if (totalSlides <= 1) return;
+
+      const slides = slider.querySelectorAll(`.slide-${postIndex}`);
+
+      // Hide current
+      slides[currentSlide].classList.remove('opacity-100', 'z-10');
+      slides[currentSlide].classList.add('opacity-0', 'z-0');
+
+      // Calculate next
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.setAttribute('data-current-slide', currentSlide);
+
+      // Show next
+      slides[currentSlide].classList.remove('opacity-0', 'z-0');
+      slides[currentSlide].classList.add('opacity-100', 'z-10');
+
+      // Update indicators
+      const indicators = slider.querySelectorAll(`.slide-indicator-${postIndex}`);
+      indicators.forEach((ind, i) => {
+        if (i === currentSlide) {
+          ind.classList.add('bg-white', 'scale-125');
+          ind.classList.remove('bg-white/30');
+        } else {
+          ind.classList.remove('bg-white', 'scale-125');
+          ind.classList.add('bg-white/30');
+        }
+      });
+    }
+
+    // Function to handle image preview upon file selection
+    function previewImage(event, previewId, containerId) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imgTarget = document.getElementById(previewId);
+          const containerTarget = document.getElementById(containerId);
+          imgTarget.src = e.target.result;
+          imgTarget.classList.remove('hidden');
+          containerTarget.style.display = 'none'; // hide the upload icon
+        }
+        reader.readAsDataURL(file);
+      }
+    }
     let currentModalPost = 0;
     let currentModalSlide = 0;
 
@@ -468,23 +572,23 @@
       currentModalPost = postIndex;
       currentModalSlide = 0;
       const post = blogPosts[postIndex];
-      
+
       // Set modal content
       document.getElementById('modalDate').textContent = post.date;
       document.getElementById('modalTitle').textContent = post.title;
       document.getElementById('modalMessage').textContent = post.message;
-      
+
       // Create slides
       const slidesContainer = document.getElementById('modalSlidesContainer');
       slidesContainer.innerHTML = '';
-      
+
       post.images.forEach((img, index) => {
         const slide = document.createElement('div');
         slide.className = `modal-slide ${index === 0 ? 'active' : ''}`;
         slide.innerHTML = `<img src="${img}" alt="Blog Image ${index + 1}">`;
         slidesContainer.appendChild(slide);
       });
-      
+
       // Show modal
       document.getElementById('blogModal').style.display = 'block';
     }
@@ -497,9 +601,9 @@
       const post = blogPosts[currentModalPost];
       const slides = document.querySelectorAll('#modalSlidesContainer .modal-slide');
       const totalSlides = slides.length;
-      
+
       currentModalSlide = (currentModalSlide + direction + totalSlides) % totalSlides;
-      
+
       slides.forEach((slide, index) => {
         slide.classList.remove('active');
         if (index === currentModalSlide) {
@@ -509,14 +613,16 @@
     }
 
     // Close modal when clicking outside
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       const modal = document.getElementById('blogModal');
       if (event.target === modal) {
         closeModal();
       }
     }
+
+    document.addEventListener('DOMContentLoaded', renderBlogList);
   </script>
 
 </body>
-</html>
 
+</html>

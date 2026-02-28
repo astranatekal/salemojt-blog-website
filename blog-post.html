@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog Post - salem_myOJTBlog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * {
       font-family: 'Montserrat', sans-serif;
     }
+
     body {
-      background: linear-gradient(135deg, #FF8C94 0%, #FF6B9D 25%, #C44569 50%, #8B2F87 75%, #6A1B9A 100%);
-      background-attachment: fixed;
+      background: #050505 !important;
+      background-attachment: fixed !important;
       min-height: 100vh;
+      color: white;
     }
+
     .glass {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     }
+
     .glass-strong {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(10, 10, 15, 0.8);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
     }
+
     .footer-gradient {
-      background: linear-gradient(135deg, #8B2F87 0%, #6A1B9A 100%);
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .fade-in { animation: fadeIn 1.5s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
-    
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
     /* Slideshow Styles */
     .slide {
       position: absolute;
@@ -47,27 +67,45 @@
       transition: opacity 0.6s ease-in-out;
       z-index: 1;
     }
+
     .slide.active {
       opacity: 1;
       z-index: 2;
     }
+
     .slide img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       border-radius: 8px;
     }
+
+    .slideshow-main-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-main-container {
+        height: 300px;
+      }
+    }
+
     .slideshow-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 0, 0, 0.8);
       border: none;
       width: 50px;
       height: 50px;
       border-radius: 50%;
       font-size: 28px;
-      color: rgba(139, 92, 246, 0.8);
+      color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
       z-index: 10;
       display: flex;
@@ -76,18 +114,21 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
+
     .slideshow-arrow:hover {
-      background: rgba(255, 255, 255, 1);
-      color: rgba(139, 92, 246, 1);
+      background: rgba(0, 0, 0, 1);
+      color: white;
       transform: translateY(-50%) scale(1.1);
     }
+
     .slideshow-arrow.left-0 {
       left: 10px;
     }
+
     .slideshow-arrow.right-0 {
       right: 10px;
     }
-    
+
     /* Social Media Icons */
     .social-icon {
       display: flex;
@@ -96,33 +137,113 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
       transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
     }
-    .social-icon svg {
-      fill: white;
-      stroke: white;
-    }
+
     .social-icon:hover {
-      border-color: rgba(255, 255, 255, 0.9);
-      background: rgba(255, 182, 193, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
+
     .text-glow {
-      text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
+
+    /* Post Button Styles */
+    .btn-post {
+      background: rgba(236, 72, 153, 0.2);
+      border: 1px solid rgba(236, 72, 153, 0.4);
+      color: #fce7f3;
+      padding: 0.75rem 2rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-post:hover {
+      background: rgba(236, 72, 153, 0.4);
+      border-color: rgba(236, 72, 153, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-post:active {
+      transform: translateY(0);
+    }
+
+    .btn-post:disabled {
+      display: none;
+    }
+
+    .posted-thought-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      color: #000;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      margin-bottom: 1.5rem;
+      position: relative;
+      border-right: 6px solid #ec4899;
+      animation: slideInDown 0.6s ease-out;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .posted-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .success-badge {
+      animation: badgeAppear 0.5s ease-out forwards;
+    }
+
+    @keyframes badgeAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
     @media (max-width: 768px) {
       nav {
         padding: 1rem !important;
       }
+
       nav h1 {
         font-size: 1.5rem !important;
         margin-bottom: 0.75rem !important;
       }
+
       nav div {
         gap: 0.5rem 0.75rem !important;
         font-size: 0.875rem !important;
@@ -130,103 +251,178 @@
         justify-content: center;
         width: 100%;
       }
+
       nav div a {
         white-space: nowrap;
         padding: 0.25rem 0.5rem;
       }
+
       .slideshow-arrow {
         width: 40px;
         height: 40px;
         font-size: 24px;
       }
+
       h1 {
         font-size: 1.75rem !important;
       }
+
       .text-3xl {
         font-size: 1.5rem !important;
       }
+
       .text-4xl {
         font-size: 1.75rem !important;
       }
+
       .glass-strong {
         padding: 1.5rem !important;
       }
+
       .social-icon {
         width: 36px;
         height: 36px;
       }
+
       .social-icon svg {
         width: 1.5rem;
         height: 1.5rem;
       }
     }
-    
+
     @media (max-width: 640px) {
       nav {
         padding: 0.75rem !important;
       }
+
       nav h1 {
         font-size: 1.25rem !important;
         margin-bottom: 0.5rem !important;
       }
+
       nav div {
         gap: 0.375rem 0.5rem !important;
         font-size: 0.75rem !important;
         flex-wrap: wrap;
         justify-content: center;
       }
+
       nav div a {
         padding: 0.25rem 0.375rem;
       }
+
       .slideshow-arrow {
         width: 35px;
         height: 35px;
         font-size: 20px;
       }
+
       h1 {
         font-size: 1.5rem !important;
       }
+
       .text-3xl {
         font-size: 1.25rem !important;
       }
     }
-    
+
     @media (max-width: 480px) {
       nav {
         padding: 0.5rem !important;
       }
+
       nav h1 {
         font-size: 1.125rem !important;
         margin-bottom: 0.5rem !important;
       }
+
       nav div {
         gap: 0.25rem 0.375rem !important;
         font-size: 0.6875rem !important;
       }
+
       nav div a {
         padding: 0.2rem 0.3rem;
       }
     }
+
+    @media (max-width: 480px) {
       .text-4xl {
         font-size: 1.5rem !important;
       }
     }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Glass Loading Animation */
+    @keyframes glassShimmer {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .glass-animate {
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0.03) 25%,
+          rgba(255, 255, 255, 0.08) 50%,
+          rgba(255, 255, 255, 0.03) 75%);
+      background-size: 200% 100%;
+      animation: glassShimmer 4s infinite linear;
+    }
+
+    .glass-card-appear {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER NAVIGATION -->
   <header class="glass-strong sticky top-0 z-50">
     <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
-      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white text-glow">OJT Journey</h1>
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white">HADJARA BLOG</h1>
       <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-base md:text-lg">
-        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
-        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors font-semibold border-b-2 border-pink-200">Blog</a>
-        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
-        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
-        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
-        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
-        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
+        <a href="index.html" class="text-white hover:text-pink-400 transition-colors">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-400 transition-colors">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-400 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-400 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-400 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-400 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-400 transition-colors">SCC</a>
       </div>
     </nav>
   </header>
@@ -234,213 +430,444 @@
   <!-- BLOG POST CONTENT -->
   <section class="fade-in py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-8">
-        <span id="postDate" class="text-base text-white block mb-3"></span>
-        <h1 id="postTitle" class="text-3xl md:text-4xl font-bold mb-8 text-white"></h1>
+      <div class="glass-strong rounded-3xl p-8 md:p-12 mb-12">
+        <div class="flex items-center gap-4 mb-4">
+          <span
+            class="px-4 py-1 bg-white/10 text-white/60 rounded-full text-xs font-bold tracking-widest uppercase border border-white/10">
+            OJT Experience
+          </span>
+          <span id="postDate" class="text-white/40 text-sm"></span>
+        </div>
+        <h2 id="postTitle" class="text-4xl md:text-6xl font-black mb-6 text-white leading-tight"></h2>
       </div>
-      
+
       <!-- Slideshow Container -->
-      <div class="relative rounded-xl overflow-hidden glass inline-block w-full mb-8" id="postSlideshow">
+      <div class="slideshow-main-container glass w-full mb-12 shadow-2xl" id="postSlideshow">
         <!-- Slides will be injected here by JS -->
       </div>
-      
+
       <!-- Message Content -->
-      <div class="glass-strong rounded-2xl p-6">
-        <p id="postMessage" class="text-base text-white leading-relaxed"></p>
+      <div class="glass-strong rounded-2xl p-6 mb-12">
+        <div id="postMessage" class="text-white/80 text-lg leading-relaxed space-y-6"></div>
       </div>
-      
-      <!-- Back Button -->
-      <div class="text-center mt-8">
-        <a href="blog.html" class="inline-flex items-center gap-2 text-white hover:text-pink-200 transition-colors font-semibold">
-          ← Back to Blog
+
+      <!-- Daily Log Container (Monday-Friday) -->
+      <div id="dailyLogsContainer" class="w-full">
+        <!-- Monday-Friday cards will be injected here by JS -->
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-white/10 gap-6">
+        <div class="flex items-center gap-4">
+          <a id="prevPostBtn" href="#"
+            class="hidden inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors font-semibold py-3 px-6 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 group">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span>Previous Post</span>
+          </a>
+          <a href="blog.html"
+            class="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors font-semibold py-3 px-6 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10">
+            Back to Blog
+          </a>
+        </div>
+        <a id="nextPostBtn" href="#"
+          class="hidden inline-flex items-center gap-2 text-white font-bold py-3 px-8 rounded-full bg-pink-600 hover:bg-pink-500 transition-all shadow-lg hover:shadow-pink-500/20 group">
+          <span>Next Post</span>
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-8 footer-gradient mt-10">
+  <footer class="py-12 bg-black border-t border-white/10 mt-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <!-- Left Column: Social Media Links -->
-        <div class="flex flex-col md:items-start items-center">
-          <h4 class="text-lg font-semibold text-white mb-4">Follow Me</h4>
-          <div class="flex gap-4">
-            <a href="#" class="social-icon" aria-label="Facebook">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="Instagram">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="TikTok">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v16m0 0a4 4 0 01-4-4V6a4 4 0 014-4h0zm0 16a4 4 0 004-4V6a4 4 0 00-4-4h0z"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon" aria-label="Behance">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h6m-3-3v6m-3 3h6m-6-6h6m-6 0V7a3 3 0 013-3h3v3h-3v3h3v3h-3a3 3 0 01-3-3V10z"></path>
-              </svg>
-            </a>
-            <a href="mailto:hadjara.abbas.salem@gmail.com" class="social-icon" aria-label="Email">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </a>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <div class="text-center md:text-left">
+          <h4 class="text-xl font-bold mb-4 text-white uppercase tracking-widest">Connect</h4>
+          <div class="flex gap-4 justify-center md:justify-start">
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">IG</a>
+            <a href="#" class="social-icon">LN</a>
           </div>
         </div>
-
-        <!-- Center Column: Copyright -->
         <div class="text-center">
-          <p class="text-white">© 2025 Hadjara A. Salem</p>
-          <p class="text-white/80 text-sm mt-1">All Rights Reserved</p>
+          <p class="text-white/40 text-sm mb-2">© 2025 ALL RIGHTS RESERVED</p>
+          <p class="text-white font-bold tracking-tighter">HADJARA A. SALEM</p>
         </div>
-
-        <!-- Right Column: Contact Details -->
-        <div class="flex flex-col md:items-end items-center">
-          <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
-          <div class="text-right md:text-right text-center">
-            <p class="text-white mb-1">hadjara.abbas.salem@gmail.com</p>
-            <p class="text-white mb-1">+63 9630801134</p>
-            <p class="text-white">Philippines</p>
-          </div>
+        <div class="text-center md:text-right">
+          <p class="text-white/60 font-light italic">"Growth is a journey, not a destination."</p>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="blog-data.js?v=101"></script>
   <script>
-    const blogPosts = [
-      {
-        images: ['images/enrolment.jpg'],
-        date: 'November 27, 2025',
-        title: 'The Final Semester: Not an End, But a Beginning',
-        message: 'Enrollment done! This isn\'t just my second semester of 4th year—it\'s the pivotal starting line for my career and my future. Let\'s make every moment count.'
-      },
-      {
-        images: ['images/endores.jpg', 'images/interview.jpg', 'images/int_apprvd.jpg'],
-        date: 'December 3-5, 2025',
-        title: 'Documents, Interview and Workshop on Professionalism',
-        message: 'Every great journey is built on meticulous preparation. See your Documents not as mere paperwork, but as the strong foundation of your ambitions. Approach the Interview as your stage—a chance to translate your potential into undeniable presence. And remember, the Workshop on Professionalism is your continuous commitment to growth. Master the process, and you don\'t just secure a future; you design a magnificent one. This is your time to move from aspiring to achieving.'
-      },
-      {
-        images: ['images/firtsday.jpg', 'images/dskrt_img.jpg'],
-        date: 'December 9-10, 2025',
-        title: 'First Day as an OJT Trainee',
-        message: 'Working with the Diskar-Tech team and learning the importance of teamwork. How effective communication and collaboration lead to successful project outcomes...'
-      }
-    ];
-
     let currentSlide = 0;
     let autoPlayInterval;
+
+    function changeSlide(direction) {
+      const slides = document.querySelectorAll('#postSlideshow .slide');
+      if (slides.length <= 1) return;
+
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+
+      // Reset autoplay timer on manual change
+      startAutoPlay();
+    }
+
+    function startAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => {
+        changeSlide(1);
+      }, 5000);
+    }
 
     function initPost() {
       // Get post ID from URL parameter
       const urlParams = new URLSearchParams(window.location.search);
       const postId = parseInt(urlParams.get('id')) || 0;
-      
+
       if (postId < 0 || postId >= blogPosts.length) {
         // Invalid post ID, redirect to blog
         window.location.href = 'blog.html';
         return;
       }
-      
+
       const post = blogPosts[postId];
-      
+
       // Set page title
       document.title = post.title + ' - salem_myOJTBlog';
-      
+
       // Set content
       document.getElementById('postDate').textContent = post.date;
       document.getElementById('postTitle').textContent = post.title;
-      document.getElementById('postMessage').textContent = post.message;
-      
-      // Create slideshow
+
+      const container = document.getElementById('dailyLogsContainer');
+      container.innerHTML = '';
+
       const slideshowContainer = document.getElementById('postSlideshow');
       slideshowContainer.innerHTML = '';
-      
-      // Add reference image for sizing
-      if (post.images.length > 0) {
-        const refImg = document.createElement('img');
-        refImg.src = post.images[0];
-        refImg.alt = post.title;
-        refImg.className = 'w-full h-auto rounded-xl opacity-0 pointer-events-none max-h-96 object-cover';
-        slideshowContainer.appendChild(refImg);
+
+      const messageContainer = document.getElementById('postMessage');
+
+      // Setup Message
+      if (post.message && post.message !== 'Stay tuned for updates on this week’s activities and learnings.') {
+        messageContainer.textContent = post.message;
+        messageContainer.parentElement.style.display = 'block';
+      } else {
+        messageContainer.parentElement.style.display = 'none';
       }
-      
+
+      // Setup Container
+      if (post.images.length > 0) {
+        slideshowContainer.classList.remove('hidden');
+      } else {
+        slideshowContainer.classList.add('hidden');
+      }
+
       // Add slides
       post.images.forEach((img, index) => {
         const slide = document.createElement('div');
-        slide.className = `slide ${index === 0 ? 'active' : ''}`;
+        slide.className = `slide ${index === 0 ? 'active' : ''} absolute inset-0 w-full h-full`;
         slide.dataset.slide = index;
         const imgElement = document.createElement('img');
         imgElement.src = img;
         imgElement.alt = post.title + ' - Image ' + (index + 1);
-        imgElement.className = 'w-full h-auto rounded-xl max-h-96 object-cover';
+        imgElement.className = 'w-full h-full object-cover transition-opacity duration-500 rounded-xl';
         slide.appendChild(imgElement);
         slideshowContainer.appendChild(slide);
       });
-      
+
       // Add navigation arrows if more than one image
       if (post.images.length > 1) {
         const leftArrow = document.createElement('button');
-        leftArrow.className = 'slideshow-arrow left-0';
+        leftArrow.className = 'slideshow-arrow left-0 absolute top-1/2 transform -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition-colors z-10 m-2';
         leftArrow.innerHTML = '‹';
         leftArrow.onclick = () => changeSlide(-1);
         slideshowContainer.appendChild(leftArrow);
-        
+
         const rightArrow = document.createElement('button');
-        rightArrow.className = 'slideshow-arrow right-0';
+        rightArrow.className = 'slideshow-arrow right-0 absolute top-1/2 transform -translate-y-1/2 bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black transition-colors z-10 m-2';
         rightArrow.innerHTML = '›';
         rightArrow.onclick = () => changeSlide(1);
         slideshowContainer.appendChild(rightArrow);
       }
-      
-      // Initialize slideshow
-      if (post.images.length > 1) {
-        startAutoPlay();
+
+      // Generate Monday-Friday Cards
+      const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+      let daysHtml = `<div class="flex flex-col gap-10 w-full max-w-3xl mx-auto">`;
+
+      daysOfWeek.forEach((day, dayIndex) => {
+        let slidesHtml = '';
+        if (post.images && post.images.length > 0) {
+          post.images.forEach((img, idx) => {
+            slidesHtml += `<img src="${img}" class="slide-${dayIndex} absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${idx === 0 ? 'opacity-100' : 'opacity-0'}" alt="${day} Slide">`;
+          });
+        } else {
+          slidesHtml = `<div class="absolute inset-0 flex items-center justify-center text-white/30 text-sm font-bold tracking-widest bg-white/5 uppercase">No Images Found</div>`;
+        }
+
+        const key = `${postId}-${dayIndex}`;
+        daySlides[key] = { images: post.images, current: 0 };
+
+        daysHtml += `
+          <div class="glass-strong glass-card-appear rounded-3xl p-8 mb-10 flex flex-col gap-6 shadow-2xl border border-white/10 transition-all duration-500 hover:border-pink-500/50 group" style="animation-delay: ${dayIndex * 0.15}s">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+              <h4 class="text-3xl font-black text-white uppercase tracking-tighter">${day}</h4>
+              <span class="px-4 py-1 bg-white/5 text-white/40 rounded-full text-xs font-bold tracking-widest uppercase group-hover:bg-pink-500/20 group-hover:text-pink-400 transition-colors">Daily Log</span>
+            </div>
+
+            <!-- Formatted Posted View -->
+            <div id="posted-view-${postId}-${dayIndex}" class="hidden">
+                <div class="posted-thought-card relative group/card">
+                    <div class="flex justify-between items-start mb-2 gap-2">
+                      <span class="posted-tag">Reflections</span>
+                      <div class="flex gap-2">
+                        <button onclick="editNote('${postId}', '${dayIndex}')" class="opacity-0 group-hover/card:opacity-100 transition-opacity text-xs font-bold text-pink-600 hover:text-pink-400 uppercase tracking-widest bg-pink-50 px-3 py-1 rounded-full">Edit</button>
+                        <button onclick="clearNote('${postId}', '${dayIndex}')" class="opacity-0 group-hover/card:opacity-100 transition-opacity text-xs font-bold text-gray-400 hover:text-red-500 uppercase tracking-widest bg-gray-50 px-3 py-1 rounded-full">Clear</button>
+                      </div>
+                    </div>
+                    <p id="posted-text-${postId}-${dayIndex}" class="text-black text-xl font-medium leading-relaxed italic"></p>
+                </div>
+            </div>
+            
+            <!-- Daily Slideshow Area with Glass Animation -->
+            <div id="media-area-${postId}-${dayIndex}" class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black/40 shadow-inner group-hover:shadow-pink-500/5 transition-all glass-animate">
+              <div id="slides-${postId}-${dayIndex}" class="absolute inset-0 w-full h-full z-0">
+                ${slidesHtml}
+              </div>
+              
+              <!-- controls -->
+              ${post.images.length > 1 ? `
+              <div id="controls-${postId}-${dayIndex}" class="absolute inset-0 w-full h-full z-20 pointer-events-none flex items-center justify-between px-4">
+                <button onclick="changeDaySlide('${postId}', '${dayIndex}', -1, event)" class="bg-black/60 hover:bg-black text-white w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all text-3xl font-light backdrop-blur-md border border-white/10">‹</button>
+                <button onclick="changeDaySlide('${postId}', '${dayIndex}', 1, event)" class="bg-black/60 hover:bg-black text-white w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all text-3xl font-light backdrop-blur-md border border-white/10">›</button>
+              </div>
+              ` : ''}
+            </div>
+
+            <!-- Note Textarea Area -->
+            <div id="input-area-${postId}-${dayIndex}" class="space-y-4">
+              <div class="flex items-center justify-between ml-1">
+                <label class="text-xs font-bold text-white/30 uppercase tracking-widest">Observations & Notes</label>
+                <div id="status-${postId}-${dayIndex}" class="hidden flex items-center gap-2 text-green-400 text-xs font-bold uppercase tracking-widest success-badge">
+                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                   Posted Successfully
+                </div>
+              </div>
+              <textarea id="note-${postId}-${dayIndex}" class="w-full bg-white text-black placeholder-gray-500 border border-white/10 rounded-2xl p-6 text-lg focus:outline-none focus:ring-2 focus:ring-pink-500/40 resize-none min-h-[180px] transition-all duration-300 shadow-inner custom-scrollbar leading-relaxed" placeholder="Document your activities for ${day}..."></textarea>
+              <div class="flex justify-end">
+                <button id="btn-${postId}-${dayIndex}" onclick="saveNote('${postId}', '${dayIndex}')" class="btn-post">Post Notes</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      daysHtml += `</div>`;
+      container.innerHTML += daysHtml;
+
+      // Load saved notes or set defaults
+      daysOfWeek.forEach((day, dayIndex) => {
+        const savedNote = localStorage.getItem(`ojt-note-${postId}-${dayIndex}`);
+
+        // If no saved note, check if we have a default log to suggest in the textarea
+        if (!savedNote && post.dailyLogs && post.dailyLogs[dayIndex]) {
+          const defaultNote = post.dailyLogs[dayIndex];
+          const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
+          if (textarea) textarea.value = defaultNote;
+        }
+
+        if (savedNote) {
+          // Hide input, show posted view
+          document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'none';
+          document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.remove('hidden');
+          document.getElementById(`posted-text-${postId}-${dayIndex}`).textContent = savedNote;
+        }
+      });
+
+      // Setup Navigation Buttons
+      const nextBtn = document.getElementById('nextPostBtn');
+      const prevBtn = document.getElementById('prevPostBtn');
+
+      // Next Button
+      if (postId < blogPosts.length - 1) {
+        nextBtn.href = `blog-post.html?id=${postId + 1}`;
+        nextBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.add('hidden');
+      }
+
+      // Previous Button
+      if (postId > 0) {
+        prevBtn.href = `blog-post.html?id=${postId - 1}`;
+        prevBtn.classList.remove('hidden');
+      } else {
+        prevBtn.classList.add('hidden');
       }
     }
 
-    function showSlide(n) {
-      const slides = document.querySelectorAll('#postSlideshow .slide');
-      if (slides.length === 0) return;
-      
-      slides.forEach(slide => slide.classList.remove('active'));
-      currentSlide = (n + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
+    function saveNote(postId, dayIndex) {
+      const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
+      const btn = document.getElementById(`btn-${postId}-${dayIndex}`);
+      const status = document.getElementById(`status-${postId}-${dayIndex}`);
+      const content = textarea.value;
 
-    function changeSlide(direction) {
-      const slides = document.querySelectorAll('#postSlideshow .slide');
-      if (slides.length === 0) return;
-      
-      clearInterval(autoPlayInterval);
-      showSlide(currentSlide + direction);
-      startAutoPlay();
-    }
+      if (!content.trim()) {
+        alert("Please enter some thoughts before posting!");
+        return;
+      }
 
-    function startAutoPlay() {
-      const slides = document.querySelectorAll('#postSlideshow .slide');
-      if (slides.length <= 1) return;
-      
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
+      // Password Protection
+      const password = prompt("Enter password to post note:");
+      if (password !== "8888") {
+        alert("Incorrect password. Posting cancelled.");
+        return;
+      }
+
+      const now = new Date();
+      const dateString = now.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      // Save to localStorage
+      localStorage.setItem(`ojt-note-${postId}-${dayIndex}`, content);
+      localStorage.setItem(`ojt-date-${postId}-${dayIndex}`, dateString);
+
+      // Transition UI
+      document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'none';
+      const postedView = document.getElementById(`posted-view-${postId}-${dayIndex}`);
+      postedView.classList.remove('hidden');
+      document.getElementById(`posted-text-${postId}-${dayIndex}`).textContent = content;
+
+      // Show success status briefly
+      status.classList.remove('hidden');
+      setTimeout(() => {
+        status.classList.add('hidden');
       }, 3000);
     }
 
+    function clearNote(postId, dayIndex) {
+      const password = prompt("Enter password to clear note:");
+      if (password !== "8888") {
+        alert("Incorrect password. Action cancelled.");
+        return;
+      }
+
+      if (confirm("Are you sure you want to remove this note?")) {
+        localStorage.removeItem(`ojt-note-${postId}-${dayIndex}`);
+        localStorage.removeItem(`ojt-date-${postId}-${dayIndex}`);
+
+        // Switch back to input
+        document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.add('hidden');
+        document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'block';
+        document.getElementById(`note-${postId}-${dayIndex}`).value = '';
+      }
+    }
+
+    function editNote(postId, dayIndex) {
+      const password = prompt("Enter password to edit note:");
+      if (password !== "8888") {
+        alert("Incorrect password. Action cancelled.");
+        return;
+      }
+
+      // Switch back to input but KEEP the content
+      document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.add('hidden');
+      document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'block';
+
+      // Focus the textarea
+      const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
+      textarea.focus();
+      // Set cursor to end
+      textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+    }
+
+    // Dictionary to hold uploaded images for daily logs
+    const daySlides = {};
+
+    function previewImages(event, postId, dayIndex) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
+
+      const containerTarget = document.getElementById(`container-${postId}-${dayIndex}`);
+      const slidesTarget = document.getElementById(`slides-${postId}-${dayIndex}`);
+      const controlsTarget = document.getElementById(`controls-${postId}-${dayIndex}`);
+
+      const key = `${postId}-${dayIndex}`;
+      daySlides[key] = { images: [], current: 0 };
+
+      slidesTarget.innerHTML = '';
+      let loadedCount = 0;
+
+      for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          daySlides[key].images.push(e.target.result);
+          loadedCount++;
+          if (loadedCount === files.length) {
+            renderDaySlides(postId, dayIndex);
+          }
+        }
+        reader.readAsDataURL(files[i]);
+      }
+
+      containerTarget.style.display = 'none';
+      slidesTarget.classList.remove('hidden');
+      if (files.length > 1) {
+        controlsTarget.classList.remove('hidden');
+      } else {
+        controlsTarget.classList.add('hidden');
+      }
+    }
+
+    function renderDaySlides(postId, dayIndex) {
+      const key = `${postId}-${dayIndex}`;
+      const data = daySlides[key];
+      const slidesTarget = document.getElementById(`slides-${postId}-${dayIndex}`);
+
+      slidesTarget.innerHTML = '';
+      data.images.forEach((img, idx) => {
+        const imgEl = document.createElement('img');
+        imgEl.src = img;
+        imgEl.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-300 pointer-events-none ${idx === data.current ? 'opacity-100' : 'opacity-0'}`;
+        slidesTarget.appendChild(imgEl);
+      });
+    }
+
+    function changeDaySlide(postId, dayIndex, direction, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      const key = `${postId}-${dayIndex}`;
+      if (!daySlides[key]) return;
+
+      const data = daySlides[key];
+      const total = data.images.length;
+      if (total <= 1) return;
+
+      data.current = (data.current + direction + total) % total;
+      renderDaySlides(postId, dayIndex);
+    }
+
     // Initialize when page loads
-    document.addEventListener('DOMContentLoaded', initPost);
+    document.addEventListener('DOMContentLoaded', () => {
+      initPost();
+      startAutoPlay();
+    });
   </script>
 
 </body>
+
 </html>
-
-

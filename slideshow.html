@@ -1,31 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team Memories Slideshow - salem_myOJTBlog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * {
       font-family: 'Montserrat', sans-serif;
     }
+
     body {
-      background-color: #F5F4ED;
+      background: #050505;
+      background-attachment: fixed;
       min-height: 100vh;
+      color: white;
     }
+
     .glass-strong {
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
     }
-    .fade-in { animation: fadeIn 1.5s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
-    
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Social Media Icons */
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      text-decoration: none !important;
+    }
+
+    .social-icon:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
     /* Slideshow Animation - Sequential */
     .slide {
       position: absolute;
@@ -35,160 +82,214 @@
       height: 100%;
       opacity: 0;
     }
-    .slide:nth-child(1) { 
+
+    .slide:nth-child(1) {
       animation: slideShow1 9s infinite;
       z-index: 3;
     }
-    .slide:nth-child(2) { 
+
+    .slide:nth-child(2) {
       animation: slideShow2 9s infinite;
       z-index: 2;
     }
-    .slide:nth-child(3) { 
+
+    .slide:nth-child(3) {
       animation: slideShow3 9s infinite;
       z-index: 1;
     }
-    
+
     @keyframes slideShow1 {
-      0%, 29.99% { opacity: 1; }
-      30%, 100% { opacity: 0; }
+
+      0%,
+      29.99% {
+        opacity: 1;
+      }
+
+      30%,
+      100% {
+        opacity: 0;
+      }
     }
+
     @keyframes slideShow2 {
-      0%, 29.99% { opacity: 0; }
-      30%, 59.99% { opacity: 1; }
-      60%, 100% { opacity: 0; }
+
+      0%,
+      29.99% {
+        opacity: 0;
+      }
+
+      30%,
+      59.99% {
+        opacity: 1;
+      }
+
+      60%,
+      100% {
+        opacity: 0;
+      }
     }
+
     @keyframes slideShow3 {
-      0%, 59.99% { opacity: 0; }
-      60%, 100% { opacity: 1; }
+
+      0%,
+      59.99% {
+        opacity: 0;
+      }
+
+      60%,
+      100% {
+        opacity: 1;
+      }
     }
-    
+
     @media (max-width: 768px) {
       nav div {
         flex-direction: column;
         gap: 0.5rem;
       }
+
       h2 {
         font-size: 1.75rem !important;
       }
+
       h3 {
         font-size: 1.5rem !important;
       }
+
       .text-4xl {
         font-size: 1.75rem !important;
       }
+
       .text-2xl {
         font-size: 1.5rem !important;
       }
+
       .h-96 {
         height: 16rem !important;
       }
+
       .glass-strong {
         padding: 1.5rem !important;
       }
     }
-    
+
     @media (max-width: 640px) {
       nav {
         padding: 0.75rem !important;
       }
+
       nav h1 {
         font-size: 1.5rem !important;
         margin-bottom: 0.5rem !important;
       }
+
       nav div {
         gap: 0.25rem !important;
         font-size: 0.875rem !important;
       }
+
       h2 {
         font-size: 1.5rem !important;
       }
+
       h3 {
         font-size: 1.25rem !important;
       }
+
       .h-96 {
         height: 12rem !important;
       }
+
       .text-lg {
         font-size: 1rem !important;
+      }
+
+      .glass-strong {
+        padding: 1.5rem !important;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER NAVIGATION -->
-  <header class="bg-white shadow sticky top-0 z-50">
+  <header class="glass-strong sticky top-0 z-50">
     <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
-      <h1 class="text-2xl font-bold mb-4 md:mb-0">OJT Journey</h1>
+      <h1 class="text-2xl font-bold mb-4 md:mb-0 text-white">HADJARA BLOG</h1>
       <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg">
-        <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
-        <a href="blog.html" class="hover:text-blue-600 transition-colors">Blog</a>
-        <a href="about.html" class="hover:text-blue-600 transition-colors">About Me</a>
-        <a href="research.html" class="hover:text-blue-600 transition-colors">Research Project</a>
-        <a href="cv.html" class="hover:text-blue-600 transition-colors">CV</a>
-        <a href="ncip.html" class="hover:text-blue-600 transition-colors">NCIP</a>
-        <a href="scc.html" class="hover:text-blue-600 transition-colors">SCC</a>
+        <a href="index.html" class="text-white hover:text-pink-200 transition-colors">Home</a>
+        <a href="blog.html" class="text-white hover:text-pink-200 transition-colors">Blog</a>
+        <a href="about.html" class="text-white hover:text-pink-200 transition-colors">About Me</a>
+        <a href="research.html" class="text-white hover:text-pink-200 transition-colors">Research Project</a>
+        <a href="cv.html" class="text-white hover:text-pink-200 transition-colors">CV</a>
+        <a href="ncip.html" class="text-white hover:text-pink-200 transition-colors">NCIP</a>
+        <a href="scc.html" class="text-white hover:text-pink-200 transition-colors">SCC</a>
       </div>
     </nav>
   </header>
 
   <!-- SLIDESHOW SECTION -->
-  <section class="fade-in py-20 bg-gray-100 min-h-screen">
+  <section class="fade-in py-20 min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Team Memories Slideshow</h2>
-      <p class="text-center text-gray-600 mb-10">Relive the moments that made our journey special</p>
-      
+      <h2 class="text-4xl font-bold text-center mb-4 text-white uppercase tracking-widest">Team Memories Slideshow</h2>
+      <p class="text-center text-white/70 mb-10">Relive the moments that made our journey special</p>
+
       <div class="max-w-4xl mx-auto mb-8">
-        <div class="relative h-96 rounded-xl overflow-hidden bg-gray-300 shadow-2xl">
-          <div class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-blue-400 to-blue-600 text-white">
+        <div class="relative h-96 rounded-xl overflow-hidden glass shadow-2xl">
+          <div
+            class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-blue-400 to-blue-600 text-white">
             Slide Picture 1
           </div>
-          <div class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-green-400 to-green-600 text-white">
+          <div
+            class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-green-400 to-green-600 text-white">
             Slide Picture 2
           </div>
-          <div class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-600 text-white">
+          <div
+            class="slide absolute inset-0 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-600 text-white">
             Slide Picture 3
           </div>
         </div>
       </div>
 
-      <div class="bg-white rounded-xl p-8 shadow-md max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold mb-4 text-center">Memorable Moments</h3>
-        <p class="text-gray-700 text-center">These images capture the essence of our teamwork, collaboration, and the bonds we've formed throughout our OJT journey. Each slide represents a milestone, a challenge overcome, or a moment of celebration.</p>
+      <div class="glass-strong rounded-xl p-8 max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold mb-4 text-center text-white">Memorable Moments</h3>
+        <p class="text-white/80 text-center leading-relaxed">These images capture the essence of our teamwork,
+          collaboration, and the bonds we've formed throughout our OJT journey. Each slide represents a milestone, a
+          challenge overcome, or a moment of celebration.</p>
       </div>
 
-      <div class="text-center mt-8">
-        <a href="index.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+      <div class="text-center mt-12">
+        <a href="index.html"
+          class="inline-block bg-white/10 border border-white/20 text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-all duration-300">
           ← Back to Home
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="text-center py-8 glass-strong mt-10">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-4 text-gray-800">Contact Information</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div>
-          <p class="font-semibold text-gray-800 mb-1">Email</p>
-          <p class="text-gray-700">email@example.com</p>
+  <footer class="py-12 bg-black border-t border-white/10 mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <div class="text-center md:text-left">
+          <h4 class="text-xl font-bold mb-4 text-white uppercase tracking-widest">Connect</h4>
+          <div class="flex gap-4 justify-center md:justify-start">
+            <a href="#" class="social-icon">FB</a>
+            <a href="#" class="social-icon">IG</a>
+            <a href="#" class="social-icon">LN</a>
+          </div>
         </div>
-        <div>
-          <p class="font-semibold text-gray-800 mb-1">Phone</p>
-          <p class="text-gray-700">+63 XXX XXX XXXX</p>
+        <div class="text-center">
+          <p class="text-white/40 text-sm mb-2">© 2025 ALL RIGHTS RESERVED</p>
+          <p class="text-white font-bold tracking-tighter">HADJARA A. SALEM</p>
         </div>
-        <div>
-          <p class="font-semibold text-gray-800 mb-1">Location</p>
-          <p class="text-gray-700">Philippines</p>
+        <div class="text-center md:text-right">
+          <p class="text-white/60 font-light italic">"Memories that last a lifetime."</p>
         </div>
-      </div>
-      <div class="border-t border-gray-300 pt-4 mt-4">
-        <p class="text-gray-700">© 2025 My OJT Journey Website</p>
       </div>
     </div>
   </footer>
 
 </body>
-</html>
 
+</html>
