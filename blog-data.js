@@ -32,7 +32,7 @@ const blogPosts = [
     message: ''
   },
   {
-    images: [],
+    images: ['images/week5_a.jpg', 'images/week5_b.jpg', 'images/week5_c.jpg', 'images/week5_d.jpg', 'images/week5_e.jpg', 'images/week5_f.jpg'],
     date: 'Week 5: January 19–23',
     title: 'Week 5 Progress',
     cardText: '',

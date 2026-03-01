@@ -497,7 +497,7 @@
             ${imageMarkup}
           </div>
           <div class="p-6 flex flex-col flex-grow relative">
-            <span class="text-sm text-pink-600 font-bold tracking-wide uppercase mb-2 block">${post.date.split(':')[0]}</span>
+            <span class="text-sm text-pink-600 font-bold tracking-wide uppercase mb-2 block">${post.date}</span>
             <h3 class="text-2xl font-black text-white leading-tight mb-3">${post.title}</h3>
             <p class="text-white/60 text-sm flex-grow leading-relaxed mb-6">${cardText.substring(0, 100)}${cardText.length > 100 ? '...' : ''}</p>
             <a href="blog-post.html?id=${index}" class="inline-flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-full font-bold transition-all mt-auto w-max group/btn">
