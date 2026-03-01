@@ -10,7 +10,7 @@ const blogPosts = [
     message: 'During our first week of internship, we began our journey as IT interns by gaining hands-on experience and familiarizing ourselves with the workplace environment. We started developing our technical skills, understanding our assigned tasks, and learning how to work professionally within a team. Throughout this week, we were expected to be responsible, punctual, adaptable, and eager to learn as we faced new tasks and challenges.'
   },
   {
-    images: ['images/week2_a.jpg', 'images/week2_b.jpg', 'images/week2_ac.jpg', 'images/week2_ad.jpg', 'images/week2_e.jpg'],
+    images: ['images/week2_a.jpg', 'images/week2_b.jpg', 'images/week2_c.jpg', 'images/week2_d.jpg', 'images/week2_e.jpg'],
     date: 'Week 2: December 15–19',
     title: 'Week 2: Leadership, Coordination, and Project Continuity',
     cardText: '',
@@ -25,7 +25,7 @@ const blogPosts = [
     message: ''
   },
   {
-    images: ['images/week3_a.jpg', 'images/week3_b.jpg'],
+    images: ['images/week4_a.jpg', 'images/week4_b.jpg', 'images/week4_c.jpg', 'images/week4_d.jpg', 'images/week4_e.jpg'],
     date: 'Week 4: January 12–16',
     title: 'Consistent Progress and Ongoing Learning',
     cardText: '',
@@ -39,14 +39,14 @@ const blogPosts = [
     message: ''
   },
   {
-    images: [],
+    images: ['images/week6_a.jpg', 'images/week6_b.jpg', 'images/week6_c.jpg', 'images/week6_d.jpg', 'images/week6_e.jpg'],
     date: 'Week 6: January 26–30',
     title: 'Week 6 Progress',
     cardText: '',
     message: ''
   },
   {
-    images: [],
+    images: ['images/week7_a.jpg', 'images/week7_b.jpg', 'images/week7_c.jpg', 'images/week7_d.jpg'],
     date: 'Week 7: February 2–6',
     title: 'Week 7 Progress',
     cardText: '',
@@ -60,14 +60,14 @@ const blogPosts = [
     message: ''
   },
   {
-    images: [],
+    images: ['images/week9_a.jpg', 'images/week9_b.jpg', 'images/week9_c.jpg', 'images/week9_d.jpg', 'images/week9_e.jpg'],
     date: 'Week 9: February 16–20',
     title: 'Week 9 Progress',
     cardText: '',
     message: ''
   },
   {
-    images: [],
+    images: ['images/week10_a.jpg', 'images/week10_b.jpg', 'images/week10_c.jpg'],
     date: 'Week 10: February 23–27',
     title: 'Week 10 Progress',
     cardText: '',
