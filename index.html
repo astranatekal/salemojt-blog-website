@@ -603,12 +603,66 @@
     </div>
   </footer>
 
+  <script src="blog-data.js"></script>
   <script>
     let currentSlide = 0;
     let autoPlayInterval;
     let isManualControl = false;
+    
+    function loadRecentMemories() {
+      const slideshowContainer = document.getElementById('slideshow-container');
+      if (!slideshowContainer || !Array.isArray(blogPosts) || blogPosts.length === 0) return;
+
+      // The last post is the most recent (thanks to sorting in blog-data.js)
+      const latestPost = blogPosts[blogPosts.length - 1];
+      const images = latestPost.images || [];
+
+      if (images.length === 0) return;
+
+      // Clear existing content (slides and navigation arrows)
+      slideshowContainer.innerHTML = '';
+
+      // 1. Add reference image for sizing
+      const refImg = document.createElement('img');
+      refImg.src = images[0];
+      refImg.alt = latestPost.title;
+      refImg.className = 'w-full h-auto rounded-xl opacity-0 pointer-events-none';
+      slideshowContainer.appendChild(refImg);
+
+      // 2. Add slide elements
+      images.forEach((imgSrc, index) => {
+        const slide = document.createElement('div');
+        slide.className = `slide ${index === 0 ? 'active' : ''}`;
+        slide.dataset.slide = index;
+        
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = latestPost.title;
+        img.className = 'w-full h-auto rounded-xl';
+        
+        slide.appendChild(img);
+        slideshowContainer.appendChild(slide);
+      });
+
+      // 3. Add Navigation Arrows if more than one image
+      if (images.length > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'slideshow-arrow left-0';
+        prevBtn.innerHTML = '‹';
+        prevBtn.onclick = () => changeSlide(-1);
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'slideshow-arrow right-0';
+        nextBtn.innerHTML = '›';
+        nextBtn.onclick = () => changeSlide(1);
+        
+        slideshowContainer.appendChild(prevBtn);
+        slideshowContainer.appendChild(nextBtn);
+      }
+    }
 
     function initSlideshow() {
+      loadRecentMemories();
       const slideshowContainer = document.getElementById('slideshow-container');
       if (!slideshowContainer) return;
 

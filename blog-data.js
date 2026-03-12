@@ -46,7 +46,7 @@ const blogPosts = [
   {
     images: ['images/week6_a.jpg', 'images/week6_b.jpg', 'images/week6_c.jpg', 'images/week6_d.jpg', 'images/week6_e.jpg'],
     date: 'Week 6: January 26–30',
-    title: 'Week 6 Progress',
+    title: 'Strengthening Skills and Expanding Responsibilities',
     cardText: '',
     message: '',
     dailySchedule: ['Jan 26 | 7:55–5:00', 'Jan 27 | 8:48–5:00', 'Jan 28 | 7:45–5:00', 'Jan 29 | 8:40–5:00', 'Jan 30 | 8:07–5:07']
@@ -54,7 +54,7 @@ const blogPosts = [
   {
     images: ['images/week7_a.jpg', 'images/week7_b.jpg', 'images/week7_c.jpg', 'images/week7_d.jpg'],
     date: 'Week 7: February 2–6',
-    title: 'Week 7 Progress',
+    title: 'Developing Competence and Preparing for Office Events',
     cardText: '',
     message: '',
     dailySchedule: ['Feb 2 | 7:30–4:33', 'Feb 3 | 7:38–5:08', 'Feb 4 | 7:40–5:08', 'Feb 5 | 7:37–5:02', 'Feb 6 | 7:46–5:04']
@@ -141,4 +141,12 @@ const blogPosts = [
   }
 ];
 
+// Function to parse date strings like "November 27, 2025" or "December 3-5, 2025"
+function parseBlogDate(dateStr) {
+  // Handle ranges like "December 3-5, 2025" by taking the first day
+  const normalizedDate = dateStr.replace(/-(\d+)/, ''); 
+  return new Date(normalizedDate);
+}
 
+// Automatically sort blog posts chronologically (Oldest to Newest)
+blogPosts.sort((a, b) => parseBlogDate(a.date) - parseBlogDate(b.date));

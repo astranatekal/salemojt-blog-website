@@ -283,13 +283,10 @@
 
   <!-- RESEARCH PROJECT SECTION -->
   <section class="fade-in py-20">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6 text-center">
       <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white uppercase">
         RESEARCH <span class="text-pink-500">PROJECT</span>
       </h2>
-      <p class="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
-        Exploring innovative solutions through data-driven research and analysis.
-      </p>
       <!-- Slideshow Container -->
       <div id="slideshow-container" class="relative rounded-xl overflow-hidden slideshow-glass inline-block w-full">
         <!-- Reference image for container sizing (hidden but maintains layout) -->
@@ -380,7 +377,7 @@
 
 
     function initResearchSlideshow() {
-      const slides = document.querySelectorAll('#researchSlideshow .slide[data-slide]');
+      const slides = document.querySelectorAll('#slideshow-container .slide[data-slide]');
       const totalSlides = slides.length;
 
       function showSlide(n) {
