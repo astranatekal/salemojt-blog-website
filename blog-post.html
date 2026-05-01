@@ -16,8 +16,12 @@
     }
 
     body {
-      background: #050505 !important;
-      background-attachment: fixed !important;
+      background-color: #050505;
+      background-image: 
+        radial-gradient(at 0% 0%, hsla(285, 98%, 15%, 1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(305, 98%, 20%, 1) 0, transparent 50%), 
+        radial-gradient(at 50% 100%, hsla(325, 98%, 15%, 1) 0, transparent 50%);
+      background-attachment: fixed;
       min-height: 100vh;
       color: white;
     }
@@ -83,50 +87,182 @@
 
     .slideshow-main-container {
       position: relative;
-      width: 100%;
-      height: 500px;
+      border-radius: 2.5rem;
       overflow: hidden;
-      border-radius: 1.5rem;
+      aspect-ratio: 16 / 9;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7);
+      margin-bottom: 3rem;
+      width: 100%;
     }
 
-    @media (max-width: 768px) {
-      .slideshow-main-container {
-        height: 300px;
-      }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.05);
+      z-index: 1;
     }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Indicators */
+    .slideshow-indicators {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.75rem;
+      z-index: 10;
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: #ec4899;
+      transform: scale(1.3);
+      box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+    }
+
 
     .slideshow-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      border: none;
-      width: 50px;
-      height: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      font-size: 28px;
-      color: rgba(255, 255, 255, 0.8);
+      font-size: 32px;
+      color: white;
       cursor: pointer;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .slideshow-arrow:hover {
-      background: rgba(0, 0, 0, 1);
-      color: white;
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
 
     .slideshow-arrow.left-0 {
-      left: 10px;
+      left: 20px;
     }
 
     .slideshow-arrow.right-0 {
-      right: 10px;
+      right: 20px;
+    }
+
+    /* Summary Section Glass Styles */
+    .summary-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 2rem;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .summary-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .summary-dtr {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 1.5rem;
+    }
+
+    .summary-day {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-time {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    .summary-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.25rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .activity-section {
+      background: rgba(236, 72, 153, 0.05);
+      border-left: 4px solid #ec4899;
+      padding: 1.5rem 2rem;
+      border-radius: 0 1rem 1rem 0;
+    }
+
+    .activity-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-main-container {
+        aspect-ratio: 4 / 3;
+      }
+      .summary-day {
+        font-size: 1.75rem;
+      }
+      .summary-card {
+        padding: 2rem;
+      }
     }
 
     /* Social Media Icons */
@@ -181,7 +317,46 @@
     }
 
     .btn-post:disabled {
-      display: none;
+      background: rgba(128, 128, 128, 0.2);
+      border-color: rgba(128, 128, 128, 0.4);
+      color: rgba(255, 255, 255, 0.4);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .btn-edit {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #bfdbfe;
+      padding: 0.75rem 2rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-edit:hover {
+      background: rgba(59, 130, 246, 0.4);
+      border-color: rgba(59, 130, 246, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-edit:active {
+      transform: translateY(0);
+    }
+
+    .btn-edit:disabled {
+      background: rgba(128, 128, 128, 0.2);
+      border-color: rgba(128, 128, 128, 0.4);
+      color: rgba(255, 255, 255, 0.4);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
     }
 
     .posted-thought-card {
@@ -430,8 +605,8 @@
   <!-- BLOG POST CONTENT -->
   <section class="fade-in py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="glass-strong rounded-3xl p-8 md:p-12 mb-12">
-        <div class="flex items-center gap-4 mb-4">
+      <div class="glass-strong rounded-3xl p-8 md:p-12 mb-12 text-center">
+        <div class="flex items-center justify-center gap-4 mb-4">
           <span
             class="px-4 py-1 bg-white/10 text-white/60 rounded-full text-xs font-bold tracking-widest uppercase border border-white/10">
             OJT Experience
@@ -446,15 +621,12 @@
         <!-- Slides will be injected here by JS -->
       </div>
 
-      <!-- Message Content -->
-      <div class="glass-strong rounded-2xl p-6 mb-12">
-        <div id="postMessage" class="text-white/80 text-lg leading-relaxed space-y-6"></div>
+      <!-- Message/Description Section -->
+      <div id="postMessageContainer" class="hidden glass-strong rounded-3xl p-8 md:p-12 mb-12 text-justify text-white/80 text-lg leading-relaxed whitespace-pre-line">
       </div>
 
-      <!-- Daily Log Container (Monday-Friday) -->
-      <div id="dailyLogsContainer" class="w-full">
-        <!-- Monday-Friday cards will be injected here by JS -->
-      </div>
+      <!-- Content sections removed as per user request -->
+
 
       <!-- Navigation Buttons -->
       <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-white/10 gap-6">
@@ -506,22 +678,44 @@
     </div>
   </footer>
 
-  <script src="blog-data.js?v=101"></script>
+  <script src="blog-data.js?v=119"></script>
   <script>
     let currentSlide = 0;
     let autoPlayInterval;
 
     function changeSlide(direction) {
       const slides = document.querySelectorAll('#postSlideshow .slide');
-      if (slides.length <= 1) return;
+      const indicators = document.querySelectorAll('#postSlideshow .indicator');
+      if (!slides.length) return;
 
       slides[currentSlide].classList.remove('active');
+      if (indicators.length) indicators[currentSlide].classList.remove('active');
+      
       currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      
       slides[currentSlide].classList.add('active');
+      if (indicators.length) indicators[currentSlide].classList.add('active');
 
-      // Reset autoplay timer on manual change
       startAutoPlay();
     }
+
+    function goToSlide(index) {
+      const slides = document.querySelectorAll('#postSlideshow .slide');
+      const indicators = document.querySelectorAll('#postSlideshow .indicator');
+      if (!slides.length || index === currentSlide) return;
+
+      slides[currentSlide].classList.remove('active');
+      if (indicators.length) indicators[currentSlide].classList.remove('active');
+      
+      currentSlide = index;
+      
+      slides[currentSlide].classList.add('active');
+      if (indicators.length) indicators[currentSlide].classList.add('active');
+
+      startAutoPlay();
+    }
+
+
 
     function startAutoPlay() {
       clearInterval(autoPlayInterval);
@@ -550,160 +744,67 @@
       document.getElementById('postDate').textContent = post.date;
       document.getElementById('postTitle').textContent = post.title;
 
-      const container = document.getElementById('dailyLogsContainer');
-      container.innerHTML = '';
+      const messageContainer = document.getElementById('postMessageContainer');
+      if (post.message && post.message.trim()) {
+        messageContainer.textContent = post.message;
+        messageContainer.classList.remove('hidden');
+      } else {
+        messageContainer.classList.add('hidden');
+      }
 
       const slideshowContainer = document.getElementById('postSlideshow');
       slideshowContainer.innerHTML = '';
 
-      const messageContainer = document.getElementById('postMessage');
-
-      // Setup Message
-      if (post.message && post.message !== 'Stay tuned for updates on this week’s activities and learnings.') {
-        messageContainer.textContent = post.message;
-        messageContainer.parentElement.style.display = 'block';
-      } else {
-        messageContainer.parentElement.style.display = 'none';
-      }
-
-      // Setup Container
+      // Setup Slideshow
       if (post.images.length > 0) {
         slideshowContainer.classList.remove('hidden');
+        
+        // Add slides
+        post.images.forEach((img, index) => {
+          const slide = document.createElement('div');
+          slide.className = `slide ${index === 0 ? 'active' : ''}`;
+          
+          const imgElement = document.createElement('img');
+          imgElement.src = img;
+          imgElement.alt = post.title + ' - Image ' + (index + 1);
+          slide.appendChild(imgElement);
+          slideshowContainer.appendChild(slide);
+        });
+
+        // Add indicators if more than one image
+        if (post.images.length > 1) {
+          const indicatorContainer = document.createElement('div');
+          indicatorContainer.className = 'slideshow-indicators';
+          
+          post.images.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `indicator ${index === 0 ? 'active' : ''}`;
+            dot.onclick = () => goToSlide(index);
+            indicatorContainer.appendChild(dot);
+          });
+          
+          slideshowContainer.appendChild(indicatorContainer);
+
+          const leftArrow = document.createElement('button');
+          leftArrow.className = 'slideshow-arrow left-0';
+          leftArrow.innerHTML = '‹';
+          leftArrow.onclick = () => changeSlide(-1);
+          slideshowContainer.appendChild(leftArrow);
+
+          const rightArrow = document.createElement('button');
+          rightArrow.className = 'slideshow-arrow right-0';
+          rightArrow.innerHTML = '›';
+          rightArrow.onclick = () => changeSlide(1);
+          slideshowContainer.appendChild(rightArrow);
+        }
       } else {
         slideshowContainer.classList.add('hidden');
       }
 
-      // Add slides
-      post.images.forEach((img, index) => {
-        const slide = document.createElement('div');
-        slide.className = `slide ${index === 0 ? 'active' : ''} absolute inset-0 w-full h-full`;
-        slide.dataset.slide = index;
-        const imgElement = document.createElement('img');
-        imgElement.src = img;
-        imgElement.alt = post.title + ' - Image ' + (index + 1);
-        imgElement.className = 'w-full h-full object-cover transition-opacity duration-500 rounded-xl';
-        slide.appendChild(imgElement);
-        slideshowContainer.appendChild(slide);
-      });
 
-      // Add navigation arrows if more than one image
-      if (post.images.length > 1) {
-        const leftArrow = document.createElement('button');
-        leftArrow.className = 'slideshow-arrow left-0 absolute top-1/2 transform -translate-y-1/2 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition-colors z-10 m-2';
-        leftArrow.innerHTML = '‹';
-        leftArrow.onclick = () => changeSlide(-1);
-        slideshowContainer.appendChild(leftArrow);
-
-        const rightArrow = document.createElement('button');
-        rightArrow.className = 'slideshow-arrow right-0 absolute top-1/2 transform -translate-y-1/2 bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black transition-colors z-10 m-2';
-        rightArrow.innerHTML = '›';
-        rightArrow.onclick = () => changeSlide(1);
-        slideshowContainer.appendChild(rightArrow);
-      }
-
-      // Generate Monday-Friday Cards
-      const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-      let daysHtml = `<div class="flex flex-col gap-10 w-full max-w-3xl mx-auto">`;
-
-      daysOfWeek.forEach((day, dayIndex) => {
-        const record = post.dailySchedule && post.dailySchedule[dayIndex] ? post.dailySchedule[dayIndex].split('|') : null;
-        const dayDate = record ? record[0].trim() : '';
-        const dayTime = record ? record[1].trim() : '';
-
-        let slidesHtml = '';
-        if (post.images && post.images.length > 0) {
-          post.images.forEach((img, idx) => {
-            slidesHtml += `<img src="${img}" class="slide-${dayIndex} absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${idx === 0 ? 'opacity-100' : 'opacity-0'}" alt="${day} Slide">`;
-          });
-        } else {
-          slidesHtml = `<div class="absolute inset-0 flex items-center justify-center text-white/30 text-sm font-bold tracking-widest bg-white/5 uppercase">No Images Found</div>`;
-        }
-
-        const key = `${postId}-${dayIndex}`;
-        daySlides[key] = { images: post.images, current: 0 };
-
-        daysHtml += `
-          <div class="glass-strong glass-card-appear rounded-3xl p-8 mb-10 flex flex-col gap-6 shadow-2xl border border-white/10 transition-all duration-500 hover:border-pink-500/50 group" style="animation-delay: ${dayIndex * 0.15}s">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
-              <div class="flex items-baseline gap-3">
-                <h4 class="text-3xl font-black text-white uppercase tracking-tighter">${day}</h4>
-                <span class="text-pink-500/60 text-lg font-bold">${dayDate}</span>
-              </div>
-              <div class="flex flex-col items-end">
-                <span class="px-4 py-1 bg-white/5 text-white/40 rounded-full text-xs font-bold tracking-widest uppercase group-hover:bg-pink-500/20 group-hover:text-pink-400 transition-colors">${dayTime || 'Daily Log'}</span>
-                ${dayTime && dayTime !== 'Daily Log' ? '<span class="text-[10px] text-white/20 uppercase tracking-[0.2em] mt-1">DTR Record</span>' : ''}
-              </div>
-            </div>
-
-            <!-- Formatted Posted View -->
-            <div id="posted-view-${postId}-${dayIndex}" class="hidden">
-                <div class="posted-thought-card relative group/card">
-                    <div class="flex justify-between items-start mb-2 gap-2">
-                      <span class="posted-tag">Reflections</span>
-                      <div class="flex gap-2">
-                        <button onclick="editNote('${postId}', '${dayIndex}')" class="opacity-0 group-hover/card:opacity-100 transition-opacity text-xs font-bold text-pink-600 hover:text-pink-400 uppercase tracking-widest bg-pink-50 px-3 py-1 rounded-full">Edit</button>
-                        <button onclick="clearNote('${postId}', '${dayIndex}')" class="opacity-0 group-hover/card:opacity-100 transition-opacity text-xs font-bold text-gray-400 hover:text-red-500 uppercase tracking-widest bg-gray-50 px-3 py-1 rounded-full">Clear</button>
-                      </div>
-                    </div>
-                    <p id="posted-text-${postId}-${dayIndex}" class="text-black text-xl font-medium leading-relaxed italic"></p>
-                </div>
-            </div>
-            
-            <!-- Daily Slideshow Area with Glass Animation -->
-            <div id="media-area-${postId}-${dayIndex}" class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black/40 shadow-inner group-hover:shadow-pink-500/5 transition-all glass-animate">
-              <div id="slides-${postId}-${dayIndex}" class="absolute inset-0 w-full h-full z-0">
-                ${slidesHtml}
-              </div>
-              
-              <!-- controls -->
-              ${post.images.length > 1 ? `
-              <div id="controls-${postId}-${dayIndex}" class="absolute inset-0 w-full h-full z-20 pointer-events-none flex items-center justify-between px-4">
-                <button onclick="changeDaySlide('${postId}', '${dayIndex}', -1, event)" class="bg-black/60 hover:bg-black text-white w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all text-3xl font-light backdrop-blur-md border border-white/10">‹</button>
-                <button onclick="changeDaySlide('${postId}', '${dayIndex}', 1, event)" class="bg-black/60 hover:bg-black text-white w-12 h-12 rounded-full flex items-center justify-center pointer-events-auto transition-all text-3xl font-light backdrop-blur-md border border-white/10">›</button>
-              </div>
-              ` : ''}
-            </div>
-
-            <!-- Note Textarea Area -->
-            <div id="input-area-${postId}-${dayIndex}" class="space-y-4">
-              <div class="flex items-center justify-between ml-1">
-                <label class="text-xs font-bold text-white/30 uppercase tracking-widest">Observations & Notes</label>
-                <div id="status-${postId}-${dayIndex}" class="hidden flex items-center gap-2 text-green-400 text-xs font-bold uppercase tracking-widest success-badge">
-                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                   Posted Successfully
-                </div>
-              </div>
-              <textarea id="note-${postId}-${dayIndex}" class="w-full bg-white text-black placeholder-gray-500 border border-white/10 rounded-2xl p-6 text-lg focus:outline-none focus:ring-2 focus:ring-pink-500/40 resize-none min-h-[180px] transition-all duration-300 shadow-inner custom-scrollbar leading-relaxed" placeholder="Document your activities for ${day}..."></textarea>
-              <div class="flex justify-end">
-                <button id="btn-${postId}-${dayIndex}" onclick="saveNote('${postId}', '${dayIndex}')" class="btn-post">Post Notes</button>
-              </div>
-            </div>
-          </div>
-        `;
-      });
-      daysHtml += `</div>`;
-      container.innerHTML += daysHtml;
-
-      // Load saved notes or set defaults
-      daysOfWeek.forEach((day, dayIndex) => {
-        const savedNote = localStorage.getItem(`ojt-note-${postId}-${dayIndex}`);
-
-        // If no saved note, check if we have a default log to suggest in the textarea
-        if (!savedNote && post.dailyLogs && post.dailyLogs[dayIndex]) {
-          const defaultNote = post.dailyLogs[dayIndex];
-          const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
-          if (textarea) textarea.value = defaultNote;
-        }
-
-        if (savedNote) {
-          // Hide input, show posted view
-          document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'none';
-          document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.remove('hidden');
-          document.getElementById(`posted-text-${postId}-${dayIndex}`).textContent = savedNote;
-        }
-      });
 
       // Setup Navigation Buttons
+
       const nextBtn = document.getElementById('nextPostBtn');
       const prevBtn = document.getElementById('prevPostBtn');
 
@@ -726,7 +827,8 @@
 
     function saveNote(postId, dayIndex) {
       const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
-      const btn = document.getElementById(`btn-${postId}-${dayIndex}`);
+      const postBtn = document.getElementById(`btn-${postId}-${dayIndex}`);
+      const editBtn = document.getElementById(`edit-btn-${postId}-${dayIndex}`);
       const status = document.getElementById(`status-${postId}-${dayIndex}`);
       const content = textarea.value;
 
@@ -754,34 +856,15 @@
       localStorage.setItem(`ojt-date-${postId}-${dayIndex}`, dateString);
 
       // Transition UI
-      document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'none';
-      const postedView = document.getElementById(`posted-view-${postId}-${dayIndex}`);
-      postedView.classList.remove('hidden');
-      document.getElementById(`posted-text-${postId}-${dayIndex}`).textContent = content;
+      textarea.readOnly = true;
+      postBtn.disabled = true;
+      editBtn.classList.remove('hidden');
 
       // Show success status briefly
       status.classList.remove('hidden');
       setTimeout(() => {
         status.classList.add('hidden');
       }, 3000);
-    }
-
-    function clearNote(postId, dayIndex) {
-      const password = prompt("Enter password to clear note:");
-      if (password !== "8888") {
-        alert("Incorrect password. Action cancelled.");
-        return;
-      }
-
-      if (confirm("Are you sure you want to remove this note?")) {
-        localStorage.removeItem(`ojt-note-${postId}-${dayIndex}`);
-        localStorage.removeItem(`ojt-date-${postId}-${dayIndex}`);
-
-        // Switch back to input
-        document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.add('hidden');
-        document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'block';
-        document.getElementById(`note-${postId}-${dayIndex}`).value = '';
-      }
     }
 
     function editNote(postId, dayIndex) {
@@ -791,12 +874,14 @@
         return;
       }
 
-      // Switch back to input but KEEP the content
-      document.getElementById(`posted-view-${postId}-${dayIndex}`).classList.add('hidden');
-      document.getElementById(`input-area-${postId}-${dayIndex}`).style.display = 'block';
-
-      // Focus the textarea
       const textarea = document.getElementById(`note-${postId}-${dayIndex}`);
+      const postBtn = document.getElementById(`btn-${postId}-${dayIndex}`);
+      
+      // Enable editing
+      textarea.readOnly = false;
+      postBtn.disabled = false;
+      
+      // Focus the textarea
       textarea.focus();
       // Set cursor to end
       textarea.setSelectionRange(textarea.value.length, textarea.value.length);
