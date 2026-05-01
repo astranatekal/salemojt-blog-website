@@ -36,7 +36,7 @@ const blogPosts = [
     dailySchedule: ['Jan 12 | 8:08–5:00', 'Jan 13 | 8:10–5:03', 'Jan 14 | 7:25–5:05', 'Jan 15 | 8:20–5:00', 'Jan 16 | (No Record)']
   },
   {
-    images: ['images/week5_a.jpg', 'images/week5_b.jpg', 'images/week5_c.jpg', 'images/week5_d.jpg', 'images/week5_e.jpg', 'images/week5_f.jpg'],
+    images: ['images/week5_a.jpg', 'images/week5_b.jpg', 'images/week5_c.jpg', 'images/week5_d.jpg', 'images/week5_e.jpg'],
     date: 'Week 5: January 20–22, 2026',
     title: 'Hands-on Experience and Event Documentation',
     cardText: '',
@@ -113,10 +113,10 @@ const blogPosts = [
   },
   {
     images: [],
-    date: 'Week 15: March 30–April 3',
-    title: 'Week 15 Progress',
+    date: 'Week 15: March 30-31 2026',
+    title: 'Back to Work and Project Continuation at NCIP',
     cardText: '',
-    message: ''
+    message: 'In these two days, we went back to work after the break and continued focusing on our project at NCIP. We resumed our tasks with more motivation, especially since we were already in the final stage of our training journey.\n\nDuring this time, we worked on improving and finalizing parts of our project. We carefully followed the instructions given by our supervisor and made sure that our outputs were organized and accurate. We also reviewed our previous work to check if there were any corrections or improvements needed.\n\nEven though it was only a short period, we stayed productive and focused. We collaborated with our co-trainees to complete assigned tasks efficiently and made sure that we were progressing steadily with our requirements.\n\nOverall, these two days were important because they helped us get back on track and continue preparing our final outputs for completion.'
   },
   {
     images: ['images/week16_a.jpg', 'images/week16_b.jpg'],
